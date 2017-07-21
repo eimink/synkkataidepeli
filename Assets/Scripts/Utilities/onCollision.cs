@@ -35,9 +35,16 @@ public class onCollision : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Finish" )
+        if (col.gameObject.tag == "Player" )
         {
             Debug.Log("Hi");
         }
     }
+
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if (coll.gameObject.tag == "Player")
+			Debug.Log("Hi");
+	}
+		
 }
