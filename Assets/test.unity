@@ -235,8 +235,8 @@ Camera:
   m_GameObject: {fileID: 1626028353}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -246,7 +246,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -269,13 +269,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1626028353}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.23911767, y: 0.3696438, z: -0.099045776, w: 0.89239913}
+  m_LocalPosition: {x: 5, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
 --- !u!1 &2117355482
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +307,7 @@ MonoBehaviour:
   blocks:
   - key: {r: 1, g: 1, b: 1, a: 0}
     prefab: {fileID: 1084484149973692, guid: 8a5fe4db977204ffb96b4fbea76f741c, type: 2}
+  wallTile: {fileID: 1651999192021066, guid: d2cac21496d7440fb90e42d17ffddd02, type: 2}
   floorTile: {fileID: 1729986329646442, guid: 91762054ec1814775a88a98391852534, type: 2}
   floorColor: {r: 0, g: 0, b: 0, a: 0}
   spawnpoints: 2
@@ -315,9 +316,9 @@ MonoBehaviour:
   xOrg: 0
   yOrg: 0
   scale: 1
-  darkTreshold: 0.3
-  midTreshold: 0.5
-  lightTreshold: 0.7
+  darkThreshold: 0.3
+  midThreshold: 0.5
+  lightThreshold: 0.7
   seed: jamlight
 --- !u!4 &2117355484
 Transform:
