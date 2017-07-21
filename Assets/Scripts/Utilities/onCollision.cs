@@ -35,7 +35,7 @@ public class onCollision : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Finish" )
+        if (col.gameObject.tag == "Player" )
         {
             Debug.Log("Hi");
         }
