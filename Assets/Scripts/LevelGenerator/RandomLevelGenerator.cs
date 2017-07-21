@@ -64,7 +64,7 @@ public class RandomLevelGenerator : LevelGenerator {
 		if (!Ready && m_started)
 		{
 			Texture2D perlin = PerlinGenerator.CreatePerlinTexture(width, height, xOrg, yOrg, scale);
-			GenerateLevelFromBitmap(SetSpawnPoints(GenerateDebris(ApplyTresholds(perlin))));
+			GenerateLevelFromBitmap(ApplyTresholds(perlin));
 		}
 	}
 
