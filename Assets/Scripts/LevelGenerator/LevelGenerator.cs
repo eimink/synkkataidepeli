@@ -35,18 +35,21 @@ public class LevelGenerator : MonoBehaviour {
 		int width = bitmap.width;
 		int height = bitmap.height;
 		GameObject tile;
+		Color tileColor;
 		GenerateBounds(width,height);
 		GenerateFloor(width,height);
+
 		for (int i = 0; i < width; i++)
 		{
 			for (int j = 0; j < height; j++)
 			{
-				int idx = FindBlockIndex(pixels[i*width+j]); // Get block from bitmap data
+				tileColor = pixels[i*width+j];
+				int idx = FindBlockIndex(tileColor); // Get block from bitmap data
 				if (idx >= 0)
 				{
 					GameObject o = (GameObject)Instantiate(blocks[idx].prefab,new Vector3(i,0,j),Quaternion.identity);
 					o.transform.parent = m_levelParent.transform;
-					if (pixels[i*width+j] == spawnColor)
+					if (tileColor == spawnColor)
 					{
 						o.tag = "SpawnPoint";
 					}
