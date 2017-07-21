@@ -19,6 +19,7 @@ public class onCollision : MonoBehaviour {
         if (col.gameObject.tag == "Player" )
         {
             Debug.Log("Hi");
+            col.gameObject.SendMessage("loseHP", 20.0f);
         }
     }
 }
