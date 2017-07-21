@@ -33,7 +33,7 @@ public class onCollision : MonoBehaviour {
         return health -= amount;
     }
 
-    void OnTriggerEnter(Collider col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Finish" )
         {
