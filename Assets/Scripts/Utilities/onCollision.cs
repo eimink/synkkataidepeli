@@ -35,7 +35,7 @@ public class onCollision : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "Cube(Clone)" )
+        if (col.gameObject.tag == "Finish" )
         {
             Debug.Log("Hi");
         }
