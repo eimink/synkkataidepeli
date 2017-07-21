@@ -23,12 +23,6 @@ public class RandomLevelGenerator : LevelGenerator {
 	void Start () {
 		Init();
 		GenerateWithSeed (seed);
-		/*if (SceneHelper.instance != null)
-		{
-			
-		}
-		else
-			RunGenerator();*/
 	}
 
 	void RunGenerator()
