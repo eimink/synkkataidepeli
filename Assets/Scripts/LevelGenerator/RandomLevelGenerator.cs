@@ -12,9 +12,9 @@ public class RandomLevelGenerator : LevelGenerator {
 	public int xOrg = 0;
 	public int yOrg = 0;
 	public float scale = 1.0f;
-	public float darkTreshold = 0.3f;
-	public float midTreshold = 0.5f;
-	public float lightTreshold = 0.7f;
+	public float darkThreshold = 0.3f;
+	public float midThreshold = 0.5f;
+	public float lightThreshold = 0.7f;
 	public string seed = "jamlight";
 
 	bool m_started = false;
@@ -53,9 +53,9 @@ public class RandomLevelGenerator : LevelGenerator {
 		xOrg = UnityEngine.Random.Range(-64,64);
 		yOrg = UnityEngine.Random.Range(-64,64);
 		scale = UnityEngine.Random.Range (2, 16);
-		darkTreshold = UnityEngine.Random.Range (1f, 40f) / 100f;
-		midTreshold = UnityEngine.Random.Range(41f,70f) / 100f;
-		lightTreshold = UnityEngine.Random.Range (71f, 100f) / 100f;
+		darkThreshold = UnityEngine.Random.Range (1f, 40f) / 100f;
+		midThreshold = UnityEngine.Random.Range(41f,70f) / 100f;
+		lightThreshold = UnityEngine.Random.Range (71f, 100f) / 100f;
 		RunGenerator();
 	}
 
@@ -64,19 +64,19 @@ public class RandomLevelGenerator : LevelGenerator {
 		if (!Ready && m_started)
 		{
 			Texture2D perlin = PerlinGenerator.CreatePerlinTexture(width, height, xOrg, yOrg, scale);
-			GenerateLevelFromBitmap(ApplyTresholds(perlin));
+			GenerateLevelFromBitmap(ApplyThresholds(perlin));
 		}
 	}
 
-	Texture2D ApplyTresholds(Texture2D tex)
+	Texture2D ApplyThresholds(Texture2D tex)
 	{
 		Color[] pixels = tex.GetPixels ();
 		for (int i = 0; i < pixels.Length; i++)
 		{
 			Color c = pixels[i];
-			c.r = c.r <= darkTreshold ? 0f : c.r >= lightTreshold ? 1f : c.r <= midTreshold ? 0.4f : 0.6f;
-			c.g = c.g <= darkTreshold ? 0f : c.g >= lightTreshold ? 1f : c.g <= midTreshold ? 0.4f : 0.6f;
-			c.b = c.b <= darkTreshold ? 0f : c.b >= lightTreshold ? 1f : c.b <= midTreshold ? 0.4f : 0.6f;
+			c.r = c.r <= darkThreshold ? 0f : c.r >= lightThreshold ? 1f : c.r <= midThreshold ? 0.4f : 0.6f;
+			c.g = c.g <= darkThreshold ? 0f : c.g >= lightThreshold ? 1f : c.g <= midThreshold ? 0.4f : 0.6f;
+			c.b = c.b <= darkThreshold ? 0f : c.b >= lightThreshold ? 1f : c.b <= midThreshold ? 0.4f : 0.6f;
 			pixels[i] = c;
 		}
 		tex.SetPixels(pixels);
