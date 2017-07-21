@@ -2,6 +2,6 @@
 
 Requires latest Unity 21.07.2017
 
-Developed at Light jam 
+Developed at JamLight
 
 More to come
