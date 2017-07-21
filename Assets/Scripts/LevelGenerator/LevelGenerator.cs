@@ -38,29 +38,29 @@ public class LevelGenerator : MonoBehaviour {
 		Color[] pixels = bitmap.GetPixels();
 		int width = bitmap.width;
 		int height = bitmap.height;
+		GameObject tile;
 		for (int i = 0; i < width; i++)
 		{
 			for (int j = 0; j < height; j++)
 			{
-				int idx = FindBlockIndex(pixels[i*width+j]);
-				if (i == 0 || j == 0 || i == width-1 || j == height-1)
+				int idx = FindBlockIndex(pixels[i*width+j]); // Get block from bitmap data
+				if (i == 0 || j == 0 || i == width-1 || j == height-1) // Check for borders
 				{
-					GameObject o = (GameObject)Instantiate(blocks[0].prefab,new Vector3(i,0,j),Quaternion.identity);
-					o.transform.parent = m_levelParent.transform;
+					tile = blocks[0].prefab;
 				}
 				else if (idx >= 0)
 				{
-					GameObject o = (GameObject)Instantiate(blocks[idx].prefab,new Vector3(i,0,j),Quaternion.identity);
-					o.transform.parent = m_levelParent.transform;
-					if (pixels[i*width+j] == spawnColor)
-					{
-						o.tag = "SpawnPoint";
-					}
+					tile = blocks[idx].prefab;
 				}
 				else
 				{
-					GameObject o = (GameObject)Instantiate(floorTile,new Vector3(i,0,j),Quaternion.identity);
-					o.transform.parent = m_levelParent.transform;
+					tile = floorTile;
+				}
+				GameObject o = (GameObject)Instantiate(tile,new Vector3(i,0,j),Quaternion.identity);
+				o.transform.parent = m_levelParent.transform;
+				if (pixels[i*width+j] == spawnColor)
+				{
+					o.tag = "SpawnPoint";
 				}
 			}
 		}
