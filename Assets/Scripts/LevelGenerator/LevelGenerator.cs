@@ -47,7 +47,7 @@ public class LevelGenerator : MonoBehaviour {
 				int idx = FindBlockIndex(tileColor); // Get block from bitmap data
 				if (idx >= 0)
 				{
-					GameObject o = (GameObject)Instantiate(blocks[idx].prefab,new Vector3(i,0,j),Quaternion.identity);
+					GameObject o = (GameObject)Instantiate(blocks[idx].prefab,new Vector3(i,j,0),Quaternion.identity);
 					o.transform.parent = m_levelParent.transform;
 					if (tileColor == spawnColor)
 					{
@@ -64,21 +64,21 @@ public class LevelGenerator : MonoBehaviour {
 		GameObject o = (GameObject)Instantiate(wallTile,new Vector3(width/2,0,0),Quaternion.identity);
 		o.transform.localScale += new Vector3(width,0,0);
 		o.transform.parent = m_levelParent.transform;
-		o = (GameObject)Instantiate(wallTile,new Vector3(width/2,0,height),Quaternion.identity);
+		o = (GameObject)Instantiate(wallTile,new Vector3(width/2,height,0),Quaternion.identity);
 		o.transform.localScale += new Vector3(width,0,0);
 		o.transform.parent = m_levelParent.transform;
-		o = (GameObject)Instantiate(wallTile,new Vector3(0,0,height/2),Quaternion.identity);
-		o.transform.localScale += new Vector3(0,0,height);
+		o = (GameObject)Instantiate(wallTile,new Vector3(0,height/2,0),Quaternion.identity);
+		o.transform.localScale += new Vector3(0,height,0);
 		o.transform.parent = m_levelParent.transform;
-		o = (GameObject)Instantiate(wallTile,new Vector3(width,0,height/2),Quaternion.identity);
-		o.transform.localScale += new Vector3(0,0,height);
+		o = (GameObject)Instantiate(wallTile,new Vector3(width,height/2,0),Quaternion.identity);
+		o.transform.localScale += new Vector3(0,height,0);
 		o.transform.parent = m_levelParent.transform;
 	}
 
 	protected void GenerateFloor(int width, int height)
 	{
-		GameObject o = (GameObject)Instantiate(floorTile,new Vector3(width/2,0,height/2),Quaternion.identity);
-		o.transform.localScale += new Vector3(width,0,height);
+		GameObject o = (GameObject)Instantiate(floorTile,new Vector3(width/2,height/2,0),Quaternion.identity);
+		o.transform.localScale += new Vector3(width,height,0);
 		o.transform.parent = m_levelParent.transform;
 	}
 

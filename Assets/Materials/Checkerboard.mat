@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Checkerboard
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 9b12f5465da0740ffb80f99b977cbe5d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -38,6 +38,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 16, y: 16}
         m_Offset: {x: 0, y: 0}
+    - _FilTex:
+        m_Texture: {fileID: 2800000, guid: d3f0d01bbfae042b0a51f0c52b9a013f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 52a8a3995cbcd471aacca99ae25d401f, type: 3}
         m_Scale: {x: 16, y: 16}
@@ -53,6 +57,10 @@ Material:
     - _ParallaxMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecTex:
+        m_Texture: {fileID: 2800000, guid: 5f4d7e89905b34c6a9813abc6ad1d37d, type: 3}
+        m_Scale: {x: 16, y: 16}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
