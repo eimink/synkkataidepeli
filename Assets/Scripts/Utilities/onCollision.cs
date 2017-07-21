@@ -3,26 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class onCollision : MonoBehaviour {
+    private float nextActionTime = 0.0f;
+    public float period = 6.0f;
+    public float health = 100.0f;
+    public float tickDMG = 1.0f;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start () {
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-    public float health = 100;
+        if (Time.time > nextActionTime)
+        {
+            nextActionTime += period;
+            health = loseHP(tickDMG);
+            // execute block of code here
+        }
+    }
 
     float loseHP(float amount)
     {
-        return health = health - amount;
+        return health -= amount;
     }
 
     float gainHP(float amount)
     {
-        return health = health + amount;
+        return health -= amount;
     }
 
     void OnTriggerEnter(Collider col)
