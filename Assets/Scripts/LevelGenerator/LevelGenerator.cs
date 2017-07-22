@@ -12,6 +12,7 @@ public class LevelGenerator : MonoBehaviour {
 	public Color enemyColor;
 	public Color healthPackColor;
 	public Color blockerColor;
+	public Color blockerColor2;
 	public Color keyColor;
 	public GeneratorBlock[] blocks;
 	public GameObject wallTile;
@@ -92,6 +93,11 @@ public class LevelGenerator : MonoBehaviour {
 						o.tag = "Blocker";
 						o.GetComponent<ReactingWithPlayer>().keyName = "key"+Convert.ToInt32(tileColor.r*255);
 					}
+					else if (tileColor.b == blockerColor2.b && tileColor.g == blockerColor2.g)
+					{
+						o.tag = "Blocker";
+						o.GetComponent<ReactingWithPlayer>().keyName = "key"+Convert.ToInt32(tileColor.r*255);
+					}
 					else if (tileColor.b == keyColor.b && tileColor.g == keyColor.g)
 					{
 						o.tag = "Key";
@@ -155,6 +161,7 @@ public class LevelGenerator : MonoBehaviour {
 			{
 				int b2 = Convert.ToInt32(blocks[i].key.b*255);
 				int g2 = Convert.ToInt32(blocks[i].key.g*255);
+				Debug.Log(blue + " " + green + " " + b2 + " " + g2);
 				if (b2 == blue && g2 == green)
 				{
 					return i;

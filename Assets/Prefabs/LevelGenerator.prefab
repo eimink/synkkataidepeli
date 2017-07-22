@@ -51,16 +51,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0426327e40a1047728ac12d0b1d91a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnColor: {r: 1, g: 1, b: 0, a: 0}
+  spawnColor: {r: 1, g: 1, b: 0, a: 1}
   goalColor: {r: 0.98039216, g: 1, b: 0, a: 1}
   interestColor: {r: 0, g: 1, b: 0.39215687, a: 0}
   enemyColor: {r: 1, g: 0, b: 1, a: 1}
   healthPackColor: {r: 0, g: 1, b: 0, a: 1}
   blockerColor: {r: 0, g: 0.27450982, b: 0.11764706, a: 1}
+  blockerColor2: {r: 0, g: 0.27450982, b: 1, a: 1}
   keyColor: {r: 0, g: 1, b: 1, a: 1}
   blocks:
   - key: {r: 1, g: 0, b: 0, a: 1}
-    prefab: {fileID: 1084484149973692, guid: 8a5fe4db977204ffb96b4fbea76f741c, type: 2}
+    prefab: {fileID: 1003217558223188, guid: 23dd0e37a48d2400da29ed9dc0bb9a64, type: 2}
   - key: {r: 0, g: 0, b: 1, a: 1}
     prefab: {fileID: 1014330036558682, guid: 187c1d02782b0419eb952fe6820553e4, type: 2}
   - key: {r: 0, g: 1, b: 0, a: 1}
@@ -68,13 +69,15 @@ MonoBehaviour:
   - key: {r: 1, g: 0, b: 1, a: 1}
     prefab: {fileID: 1251333198210816, guid: 4d4917fa0f7344b5a9b7d0aabc417466, type: 2}
   - key: {r: 0, g: 0.27450982, b: 0.11764707, a: 1}
-    prefab: {fileID: 1425947117378676, guid: e6e3396d810474b539eb9fbe40859d7e, type: 2}
+    prefab: {fileID: 1457332855128870, guid: d8c7822f7013d4642a86a048e35f75b5, type: 2}
   - key: {r: 0, g: 1, b: 1, a: 1}
     prefab: {fileID: 1070441120378826, guid: d090a9342a68445178a2ac76471883eb, type: 2}
   - key: {r: 1, g: 1, b: 0, a: 1}
     prefab: {fileID: 1938650374188106, guid: a6d153656fbdf4dc68ea4dc858cf0447, type: 2}
   - key: {r: 0, g: 1, b: 0.3921569, a: 1}
     prefab: {fileID: 1546482900689556, guid: 676b8e30badd549afb1d4ef35b0d6628, type: 2}
+  - key: {r: 0, g: 0.27450982, b: 1, a: 1}
+    prefab: {fileID: 1512483064437304, guid: 35446d363f6834c45baed3e0ab6a7801, type: 2}
   wallTile: {fileID: 1154140699387954, guid: d76b80e7368ae472a81626d16c474abf, type: 2}
   floorTile: {fileID: 1729986329646442, guid: 91762054ec1814775a88a98391852534, type: 2}
   floorColor: {r: 0, g: 0, b: 0, a: 0}
