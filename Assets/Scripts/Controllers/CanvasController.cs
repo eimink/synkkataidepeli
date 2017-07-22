@@ -8,12 +8,21 @@ public class CanvasController : MonoBehaviour
     GameObject[] storypoints;
     string activeCanvasID;
     private GameObject player;
-    void Start()
+    void Awake()
     {
         activeCanvasID = "";
-        SceneManager.LoadScene("storyline", LoadSceneMode.Additive);
-        player = GameObject.FindWithTag("Player");
+		SceneManager.LoadScene("storyline", LoadSceneMode.Additive);
+		GameObject.Find("GameController").GetComponent<GameController>().onGameInitialized += delegate(object sender, System.EventArgs e)
+			{
+				Init();
+			};
     }
+
+	void Init()
+	{
+		
+		player = GameObject.FindWithTag("Player");
+	}
 
     void Update()
     {
