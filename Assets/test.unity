@@ -902,11 +902,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114362464307097638, guid: 674176e24b5674dafb57d2a8f425cbb7,
-        type: 2}
-      propertyPath: keyImages.Array.size
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4978413829852246, guid: 674176e24b5674dafb57d2a8f425cbb7, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10
