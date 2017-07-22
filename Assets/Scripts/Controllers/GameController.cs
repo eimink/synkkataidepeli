@@ -7,11 +7,14 @@ public class GameController : MonoBehaviour
 
     private bool gameOver;
     private bool restart;
+    private int storystate;
+    private GameObject canvasController;
 
     void Start ()
     {
         gameOver = false;
         restart = false;
+        canvasController = GameObject.Find("CanvasController");
     }
 
     void Update()
@@ -30,4 +33,15 @@ public class GameController : MonoBehaviour
         gameOver = true;
 		restart = true;
     }
+
+    public void ShowStorypoint()
+    {
+        string id = "storypoint" + storystate;
+        Debug.Log("Showing storypoint for " + id);
+        canvasController.SendMessage("ActivateStorypoint", id);
+        Input.GetKeyDown(KeyCode.Space);
+        canvasController.SendMessage("DeactivateStorypoint", id);
+        storystate += 1;
+    }
+
 }
