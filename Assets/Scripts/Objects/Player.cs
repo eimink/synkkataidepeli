@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public Image damageImage;
     public float flashSpeed = 5f;
     public Slider healthSlider;
+    public Text collectablesText;
+    public int collectablesMax;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
     private float tickDMG = 0.1f;
@@ -18,11 +20,17 @@ public class Player : MonoBehaviour
     private float nextActionTime = 0.0f;
     private Rigidbody2D rb;
     private bool playerMovement = true;
+    private int collectablesCount;
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        collectablesCount = 0;
+        collectablesMax = 6;
+        setCollectables();
     }
+
     void Update()
     {
         // If the player has just been damaged...
@@ -41,6 +49,7 @@ public class Player : MonoBehaviour
         // Reset the damaged flag.
         HPChange = 0;
     }
+
     void FixedUpdate()
     {
         if (playerMovement == true)
@@ -58,6 +67,7 @@ public class Player : MonoBehaviour
             // execute block of code here
         }
     }
+
     public float loseHP(float amount)
     {
         health -= amount;
@@ -65,7 +75,6 @@ public class Player : MonoBehaviour
         healthSlider.value = health;
         if (health <= 0 && !isDead)
         {
-            // ... it should die.
             Death();
         }
         return health;
@@ -81,6 +90,16 @@ public class Player : MonoBehaviour
         return health;
 
     }
+    private void setCollectables()
+    {
+        collectablesText.text = "Collectables: " + collectablesCount.ToString() + "/" + collectablesMax.ToString();
+    }
+    public void collectedItem(int collected)
+    {
+        collectablesCount += collected;
+        setCollectables();
+    }
+
     private void Death()
     {
         // Set the death flag so this function won't be called again.
