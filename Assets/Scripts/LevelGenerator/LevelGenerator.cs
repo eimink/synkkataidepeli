@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+
 
 public class LevelGenerator : MonoBehaviour {
 
@@ -54,7 +56,7 @@ public class LevelGenerator : MonoBehaviour {
 				int idx = FindBlockIndex(tileColor); // Get block from bitmap data
 				if (idx >= 0)
 				{
-					GameObject o = (GameObject)Instantiate(blocks[idx].prefab,new Vector3(j,i,0),Quaternion.identity);
+					GameObject o = (GameObject)Instantiate(blocks[idx].prefab,new Vector3(j,i,-1),Quaternion.identity);
 					o.transform.parent = m_levelParent.transform;
 					if (tileColor == spawnColor)
 					{
@@ -76,15 +78,15 @@ public class LevelGenerator : MonoBehaviour {
 					{
 						o.tag = "Enemy";
 					}
-					else if (tileColor.b == blockerColor.b && tileColor.g == blockerColor.b)
+					else if (tileColor.b == blockerColor.b && tileColor.g == blockerColor.g)
 					{
 						o.tag = "Blocker";
-						o.GetComponent<ReactingWithPlayer>().keyName = "key"+tileColor.r*255;
+						o.GetComponent<ReactingWithPlayer>().keyName = "key"+Convert.ToInt32(tileColor.r*255);
 					}
-					else if (tileColor.b == keyColor.b && tileColor.g == keyColor.b)
+					else if (tileColor.b == keyColor.b && tileColor.g == keyColor.g)
 					{
 						o.tag = "Key";
-						o.GetComponent<pickupInventoryItem>().keyName = "key"+tileColor.r*255;
+						o.GetComponent<pickupInventoryItem>().keyName = "key"+Convert.ToInt32(tileColor.r*255);
 					}
 				}
 			}
@@ -119,9 +121,29 @@ public class LevelGenerator : MonoBehaviour {
 	{
 		for (int i = 0; i < blocks.Length; i++) 
 		{
-			if (blocks [i].key == c)
+			if (blocks[i].key == c)
 			{
 				return i;
+			}
+		}
+		return FindBlockIndexBG(c);
+	}
+
+	protected int FindBlockIndexBG(Color c)
+	{
+		int red = Convert.ToInt32(c.r * 255);
+		int blue = Convert.ToInt32(c.b * 255);
+		int green = Convert.ToInt32(c.g * 255);
+		if (red >= 1 && red <= 7)
+		{
+			for (int i = 0; i < blocks.Length; i++) 
+			{
+				int b2 = Convert.ToInt32(blocks[i].key.b*255);
+				int g2 = Convert.ToInt32(blocks[i].key.g*255);
+				if (b2 == blue && g2 == green)
+				{
+					return i;
+				}
 			}
 		}
 		return -1;
