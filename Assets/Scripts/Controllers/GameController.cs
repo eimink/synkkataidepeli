@@ -36,12 +36,13 @@ public class GameController : MonoBehaviour
 
     public void ShowStorypoint()
     {
-        string id = "storypoint" + storystate;
+        string id = getStorypointID();
         Debug.Log("Showing storypoint for " + id);
         canvasController.SendMessage("ActivateStorypoint", id);
-        Input.GetKeyDown(KeyCode.Space);
-        canvasController.SendMessage("DeactivateStorypoint", id);
         storystate += 1;
     }
 
+    private string getStorypointID() {
+        return "storypoint" + storystate;
+    }
 }

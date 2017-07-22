@@ -6,14 +6,21 @@ public class CanvasController : MonoBehaviour
 {
 
     GameObject[] storypoints;
+    string activeCanvasID;
 
     void Start()
     {
+        activeCanvasID = "";
         SceneManager.LoadScene("storyline", LoadSceneMode.Additive);
     }
 
     void Update()
     {
+        if(activeCanvasID != "") {
+            if(Input.GetKeyDown(KeyCode.Space)) {
+                DeactivateStorypoint();
+            }
+        }
 	}
 
     void OnEnable()
@@ -52,17 +59,18 @@ public class CanvasController : MonoBehaviour
             if(storypoints[i].name == name) {
                 Debug.Log("Found storypoint for activation");
                 storypoints[i].SetActive(true);
+                activeCanvasID = name;
             }
         }
     }
 
-    public void DeactivateStorypoint(string name) {
-        Debug.Log("Deactivating storypoint " + name);
+    public void DeactivateStorypoint() {
         for(int i = 0; i < storypoints.Length; ++i)
         {
-            if(storypoints[i].name == name) {
+            if(storypoints[i].name == activeCanvasID) {
                 Debug.Log("Found storypoint for deactivation");
                 storypoints[i].SetActive(false);
+                activeCanvasID = "";
             }
         }
     }
