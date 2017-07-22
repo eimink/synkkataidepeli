@@ -58,6 +58,14 @@ public class LevelGenerator : MonoBehaviour {
 				{
 					GameObject o = (GameObject)Instantiate(blocks[idx].prefab,new Vector3(j,i,-1),Quaternion.identity);
 					o.transform.parent = m_levelParent.transform;
+					if (o.name == "Hazard(Clone)")
+					{
+						int rnd = UnityEngine.Random.Range(0,2);
+						if (rnd == 0)
+							o.transform.Find("HazardKnife").gameObject.SetActive(false);
+						else
+							o.transform.Find("HazardNoose").gameObject.SetActive(false);
+					}
 					if (tileColor == spawnColor)
 					{
 						o.tag = "SpawnPoint";
