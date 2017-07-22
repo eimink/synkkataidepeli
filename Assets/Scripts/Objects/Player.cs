@@ -71,6 +71,18 @@ public class Player : MonoBehaviour
         collectablesText.text = "Collectables: " + collectablesCount.ToString() + "/" + collectablesMax.ToString();
     }
 
+    private void Death()
+    {
+        // Set the death flag so this function won't be called again.
+        isDead = true;
+        gameStateText.text = "IT'S GAME OVER MAN, GAME OVER! PRESS R TO TRY AGAIN";
+        // Turn off the movement
+        playerMovement = false;
+
+        // Call gameController that blargh im ded
+        gameController.SendMessage("PlayerDied");
+    }
+
     public float loseHP(float amount)
     {
         health -= amount;
@@ -98,15 +110,4 @@ public class Player : MonoBehaviour
         setCollectables();
     }
 
-    private void Death()
-    {
-        // Set the death flag so this function won't be called again.
-        isDead = true;
-        gameStateText.text = "IT'S GAME OVER MAN, GAME OVER! PRESS R TO TRY AGAIN";
-        // Turn off the movement
-        playerMovement = false;
-        
-        // Call gameController that blargh im ded
-        gameController.SendMessage("PlayerDied");
-    }
 }
