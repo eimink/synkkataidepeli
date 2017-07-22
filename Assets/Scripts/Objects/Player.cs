@@ -34,8 +34,9 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameController = GameObject.FindWithTag("GameController");
-		damageImage = GameObject.Find("DamageImage").GetComponent<Image>();
-		healthSlider = GameObject.Find("HealthSlider").GetComponent<Slider>();
+        damageImage = GameObject.Find("DamageImage").GetComponent<Image>();
+        healthSlider = GameObject.Find("HealthSlider").GetComponent<Slider>();
+        gameStateText = GameObject.Find("GameStateText").GetComponent<Text>();
     }
 
     void Update()
@@ -62,13 +63,12 @@ public class Player : MonoBehaviour
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
 #if UNITY_ANDROID
-          
             if (Input.touchCount > 0)
             {
-                Touch f0 = Input.GetTouch(0);  
+                Touch f0 = Input.GetTouch(0);
                 Vector3 f0Delta2 = new Vector3(f0.deltaPosition.x, -f0.deltaPosition.y, 0);
-                x += Mathf.Deg2Rad * f0Delta2.x * dragSensitivity * 10;
-                y += Mathf.Deg2Rad * f0Delta2.y * dragSensitivity * 10;
+                x += Mathf.Deg2Rad * f0Delta2.x * 10;
+                y += Mathf.Deg2Rad * f0Delta2.y * 10;
                 moveHorizontal = x;
                 moveVertical = y;
             }
@@ -117,6 +117,7 @@ public class Player : MonoBehaviour
     }
     private void animateDeath() {
         transform.Rotate(0,0, -90);
+        spriteRenderer.sprite = Resources.Load<Sprite>("Textures/mainmaus_dead");
     }
 
     public void loseHP(float amount)
