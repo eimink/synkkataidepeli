@@ -20,12 +20,16 @@ public class Inventory : MonoBehaviour {
     public void setInventory(string item) {
         inventory.Add(item);
         Debug.Log(item + " added to the inventory");
+        setKeyUIPicture(item);
     }
 
     public bool getInventory(string item)
     {
         bool inventoryItem = inventory.Contains(item);
         return inventoryItem;
+    }
+    private void setKeyUIPicture(string whichKey) {
+
     }
 
     private void setCollectables()
