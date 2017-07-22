@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public Text gameStateText;
 
 
-    private Color flashDMGColor = new Color(1f, 0f, 0f, 0.1f);
+    private Color flashDMGColor = new Color(1f, 0f, 1f, 0.1f);
     private Color flashHPColor = new Color(0f, 1f, 0f, 0.1f);
     private float tickDMG = 0.1f;
     private int HPChange;
