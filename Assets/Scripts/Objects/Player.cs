@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
         gameController.SendMessage("PlayerDied");
     }
 
-    public float loseHP(float amount)
+    public void loseHP(float amount)
     {
         health -= amount;
         HPChange = 2;
@@ -92,15 +92,24 @@ public class Player : MonoBehaviour
         {
             Death();
         }
-        return health;
     }
 
-    public float gainHP(float amount)
+    public void gainHP(float amount)
     {
-        health += amount;
-        HPChange = 1;
-        healthSlider.value = health;
-        return health;
+        if (health < 100) {
+            health += amount;
+            if (health > 100)
+            {
+                Debug.Log("don't cheat");
+                health = 100;
+            }
+            HPChange = 1;
+            healthSlider.value = health;
+        }
+        else
+        {
+            Debug.Log("HP is already full");
+        }
 
     }
     
