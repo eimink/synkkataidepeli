@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4806262869896884}
+  - component: {fileID: 114851280063187034}
   m_Layer: 0
   m_Name: Bridge 1
   m_TagString: Untagged
@@ -36,12 +37,12 @@ GameObject:
   - component: {fileID: 4246161195112890}
   - component: {fileID: 212218801072732506}
   m_Layer: 0
-  m_Name: h
+  m_Name: v
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1766426077739832
 GameObject:
   m_ObjectHideFlags: 0
@@ -52,7 +53,7 @@ GameObject:
   - component: {fileID: 4803546823332020}
   - component: {fileID: 212135624672271170}
   m_Layer: 0
-  m_Name: v
+  m_Name: h
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +100,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114851280063187034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1457332855128870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8221a3c67dfdc4c46a1133d5c3dc3f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyName: 
 --- !u!212 &212135624672271170
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -112,7 +125,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 72f22b5f68de14c2d88a73a05348ff34, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -154,7 +167,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 72f22b5f68de14c2d88a73a05348ff34, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -1013,16 +1013,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114364416009731218, guid: 6f5df983fc21c4cb88c62303b1c8d7c5,
-        type: 2}
-      propertyPath: blocks.Array.data[6].key.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364416009731218, guid: 6f5df983fc21c4cb88c62303b1c8d7c5,
-        type: 2}
-      propertyPath: spawnColor.a
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f5df983fc21c4cb88c62303b1c8d7c5, type: 2}
   m_IsPrefabParent: 0

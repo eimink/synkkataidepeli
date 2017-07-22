@@ -81,4 +81,5 @@ MonoBehaviour:
   wallTile: {fileID: 1154140699387954, guid: d76b80e7368ae472a81626d16c474abf, type: 2}
   floorTile: {fileID: 1729986329646442, guid: 91762054ec1814775a88a98391852534, type: 2}
   floorColor: {r: 0, g: 0, b: 0, a: 0}
-  testBitmap: {fileID: 2800000, guid: 86ee8579de5ab494bbebc51f58a97995, type: 3}
+  riverCorner: {fileID: 2100000, guid: 22623ca86c72b4a0aacb370d6d0497a1, type: 2}
+  testBitmap: {fileID: 2800000, guid: 021e4928354924a9fa850aa80ac01638, type: 3}

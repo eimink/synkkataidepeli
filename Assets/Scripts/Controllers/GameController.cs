@@ -37,7 +37,8 @@ public class GameController : MonoBehaviour
 		mainCamera = GameObject.FindWithTag("MainCamera");
 		CameraController c = mainCamera.GetComponent<CameraController>();
 		if (spawnPoint == null) Debug.Log("spawn missing!");
-		c.player = GameObject.Instantiate(dickButt,spawnPoint.transform.position,Quaternion.identity);
+		Vector3 spawnPos = new Vector3(spawnPoint.transform.position.x,spawnPoint.transform.position.y,-2f);
+		c.player = GameObject.Instantiate(dickButt,spawnPos,Quaternion.identity);
 		if (onGameInitialized != null)
 		{
 			Debug.Log("onGameGenerated");

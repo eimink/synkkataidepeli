@@ -21,6 +21,8 @@ public class LevelGenerator : MonoBehaviour {
 	public bool Ready {get{return m_ready;}}
 	public event EventHandler onLevelGenerated;
 
+	public Material riverCorner;
+
 	GameObject m_levelParent;
 	bool m_ready = false;
 
@@ -60,6 +62,10 @@ public class LevelGenerator : MonoBehaviour {
 				{
 					GameObject o = (GameObject)Instantiate(blocks[idx].prefab,new Vector3(j,i,-1),Quaternion.identity);
 					o.transform.parent = m_levelParent.transform;
+					if (o.name == "River(Clone)")
+					{
+						ChooseRiverBlock(Convert.ToInt32(tileColor.r*255),o);
+					}
 					if (o.name == "Hazard(Clone)")
 					{
 						int rnd = UnityEngine.Random.Range(0,2);
@@ -115,6 +121,32 @@ public class LevelGenerator : MonoBehaviour {
 		}
 	}
 
+	protected void ChooseRiverBlock(int i, GameObject o)
+	{
+		switch (i) {
+			case 1:
+				o.transform.Rotate(Vector3.forward * 90);
+				break;
+			case 2:
+				o.GetComponent<MeshRenderer>().material = riverCorner;
+				o.transform.Rotate(Vector3.forward * 180);
+				break;
+			case 3:
+				o.GetComponent<MeshRenderer>().material = riverCorner;
+				o.transform.Rotate(Vector3.forward * -270);
+				break;
+			case 4:
+				o.GetComponent<MeshRenderer>().material = riverCorner;
+				break;
+			case 5:
+				o.GetComponent<MeshRenderer>().material = riverCorner;
+				o.transform.Rotate(Vector3.forward * -90);
+				break;
+			default:
+				break;
+		}
+	}
+
 	protected void GenerateBounds(int width, int height)
 	{
 		GameObject o = (GameObject)Instantiate(wallTile,new Vector3(width/2,0,0),Quaternion.identity);
@@ -161,7 +193,6 @@ public class LevelGenerator : MonoBehaviour {
 			{
 				int b2 = Convert.ToInt32(blocks[i].key.b*255);
 				int g2 = Convert.ToInt32(blocks[i].key.g*255);
-				Debug.Log(blue + " " + green + " " + b2 + " " + g2);
 				if (b2 == blue && g2 == green)
 				{
 					return i;
