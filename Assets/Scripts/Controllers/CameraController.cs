@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mainCamera = GetComponent<Camera>();
-		player = (GameObject)GameObject.FindGameObjectsWithTag("Player")[0];
+		player = GameObject.FindWithTag("Player");
 	}
 	
 	// Update is called once per frame
