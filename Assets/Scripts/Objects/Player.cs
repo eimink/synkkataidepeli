@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     private bool playerMovement = true;
     private int collectablesCount;
     private GameObject gameController;
-    private int maxHP = 100;
+    private float maxHP = 100.0f;
 
     void Start()
     {
