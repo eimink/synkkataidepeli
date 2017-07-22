@@ -23,7 +23,20 @@ public class EditModeTest {
         var go = new GameObject("dickbutt");
         Assert.AreEqual(true, go.active);
     }
-
+    [Test]
+    public void CollectiblesWork()
+    {
+        var go = new InventoryUtils();
+        go.collectItem(1);
+        Assert.AreEqual(1, go.collectedItems());
+    }
+    [Test]
+    public void InventoryWorkTest()
+    {
+        var go = new InventoryUtils();
+        go.setInventoryData("VerySeriousKey");
+        Assert.AreEqual(true, go.getInventoryData().Contains("VerySeriousKey"));
+    }
     // A UnityTest behaves like a coroutine in PlayMode
     // and allows you to yield null to skip a frame in EditMode
     [UnityTest]

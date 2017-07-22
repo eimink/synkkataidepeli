@@ -9,26 +9,23 @@ public class Inventory : MonoBehaviour {
     public int collectablesMax;
     public Text collectablesText;
     public Image[] keyImages = new Image[5];
-    private int collectablesCount;
-    private List<string> inventory = new List<string>();
-
+    private InventoryUtils invUtils = new InventoryUtils();
 
     void Start() {
-        collectablesCount = 0;
         collectablesMax = 7;
         setCollectables();
         disableKeyImages();
     }
 
     public void setInventory(string item) {
-        inventory.Add(item);
+        invUtils.setInventoryData(item);
         Debug.Log(item + " added to the inventory");
         enableKeyImage(item);
     }
 
     public bool getInventory(string item)
     {
-        bool inventoryItem = inventory.Contains(item);
+        bool inventoryItem = invUtils.getInventoryData().Contains(item);
         return inventoryItem;
     }
 
@@ -48,12 +45,13 @@ public class Inventory : MonoBehaviour {
 
     private void setCollectables()
     {
-        collectablesText.text = "Heart Pieces: " + collectablesCount.ToString() + "/" + collectablesMax.ToString();
+        collectablesText.text = "Heart Pieces: " + invUtils.collectedItems().ToString() + "/" + collectablesMax.ToString();
     }
 
     public void collectedItem(int collected)
     {
-        collectablesCount += collected;
+        invUtils.collectItem(collected);
         setCollectables();
     }
 }
+
