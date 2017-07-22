@@ -54,11 +54,6 @@ public class CanvasController : MonoBehaviour
                 storypoints[i].SetActive(true);
             }
         }
-        /*Debug.Log("searching " + id);
-        GameObject storypoint = storypoints[i]
-        storypoint.SetActive(true);
-        Input.GetKeyDown(KeyCode.Space);
-        storystate += 1;*/
     }
 
     public void DeactivateStorypoint(string name) {
