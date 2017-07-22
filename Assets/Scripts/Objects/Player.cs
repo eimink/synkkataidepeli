@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float flashSpeed = 5f;
     public Slider healthSlider;
     public Text collectablesText;
+    public Text gameStateText;
     public int collectablesMax;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
@@ -103,7 +104,7 @@ public class Player : MonoBehaviour
     {
         // Set the death flag so this function won't be called again.
         isDead = true;
-        
+        gameStateText.text = "IT'S GAME OVER MAN, GAME OVER! PRESS R TO TRY AGAIN";
         // Turn off the movement
         playerMovement = false;
         
