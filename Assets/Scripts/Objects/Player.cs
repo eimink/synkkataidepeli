@@ -21,9 +21,12 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private bool playerMovement = true;
     private GameObject gameController;
+    private float x = 0.0f;
+    private float y = 0.0f;
+    private float dragSensitivity = 2;
     private SpriteRenderer spriteRenderer;
     private bool lookRight = true;
-    
+
     private PlayerUtils playUtils = new PlayerUtils();
 
     void Start()
@@ -58,12 +61,18 @@ public class Player : MonoBehaviour
         { 
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began ||Input.GetMouseButtonDown(0))
+#if UNITY_ANDROID
+          
+            if (Input.touchCount > 0)
             {
-                Vector2 touchDeltaPosition = Input.GetTouch(0).position;
-                moveVertical = -touchDeltaPosition.y;
-                moveHorizontal = -touchDeltaPosition.x;
+                Touch f0 = Input.GetTouch(0);  
+                Vector3 f0Delta2 = new Vector3(f0.deltaPosition.x, -f0.deltaPosition.y, 0);
+                x += Mathf.Deg2Rad * f0Delta2.x * dragSensitivity * 10;
+                y += Mathf.Deg2Rad * f0Delta2.y * dragSensitivity * 10;
+                moveHorizontal = x;
+                moveVertical = y;
             }
+#endif
             Move(moveHorizontal, moveVertical);
             tickHandler();
         }
