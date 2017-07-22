@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
     }
     private void animateDeath() {
         transform.Rotate(0,0, -90);
-        gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Textures/mainmaus_dead");
+        spriteRenderer.sprite = Resources.Load<Sprite>("Textures/mainmaus_dead");
     }
 
     public void loseHP(float amount)
