@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
         animateDeath();
 
         // Call gameController that blargh im ded
-        gameController.SendMessage("PlayerDied");
+        sendGameEvent("PlayerDied");
     }
 
     // blarg im ded
@@ -105,5 +105,9 @@ public class Player : MonoBehaviour
         playUtils.HPGrant(amount);
         HPChange = 1;
         healthSlider.value = playUtils.getHealth();
+    }
+
+    public void sendGameEvent(string eventName) {
+        gameController.SendMessage(eventName);
     }
 }
