@@ -13,7 +13,9 @@ public class Player : MonoBehaviour
     public Text collectablesText;
     public Text gameStateText;
     public int collectablesMax;
-    public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+
+    private Color flashDMGColor = new Color(1f, 0f, 0f, 0.1f);
+    private Color flashHPColor = new Color(0f, 1f, 0f, 0.1f);
 
     private float tickDMG = 0.1f;
     private int HPChange;
@@ -38,7 +40,10 @@ public class Player : MonoBehaviour
     {
         if (HPChange == 2)
         {
-            damageImage.color = flashColour;
+            damageImage.color = flashDMGColor;
+        }
+        else if (HPChange ==1) {
+            damageImage.color = flashHPColor;
         }
         else
         {
@@ -62,7 +67,7 @@ public class Player : MonoBehaviour
         if (Time.time > nextActionTime)
         {
             nextActionTime += period;
-            health = loseHP(tickDMG);
+            loseHP(tickDMG);
             
         }
     }
