@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
 
     private float tickDMG = 0.1f;
     private int HPChange;
+    private bool isDead;
     private float nextActionTime = 0.0f;
     private Rigidbody2D rb;
-    
+    private bool playerMovement = true;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -41,10 +43,13 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (playerMovement == true)
+        { 
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0f);
         rb.AddForce(movement * speed);
+        }
 
         if (Time.time > nextActionTime)
         {
@@ -58,6 +63,11 @@ public class Player : MonoBehaviour
         health -= amount;
         HPChange = 2;
         healthSlider.value = health;
+        if (health <= 0 && !isDead)
+        {
+            // ... it should die.
+            Death();
+        }
         return health;
 
 
@@ -70,5 +80,14 @@ public class Player : MonoBehaviour
         healthSlider.value = health;
         return health;
 
+    }
+    private void Death()
+    {
+        // Set the death flag so this function won't be called again.
+        isDead = true;
+        
+        // Turn off the movement
+        playerMovement = false;
+        
     }
 }
