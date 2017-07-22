@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 {
     public float speed;
     public float period = 6.0f;
-    public float health = 100.0f;
     public Image damageImage;
     public float flashSpeed = 5f;
     public Slider healthSlider;
@@ -22,7 +21,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private bool playerMovement = true;
     private GameObject gameController;
-    private float maxHP = 100.0f;
+    
+    private PlayerUtils playUtils = new PlayerUtils();
 
     void Start()
     {
@@ -87,10 +87,10 @@ public class Player : MonoBehaviour
 
     public void loseHP(float amount)
     {
-        health -= amount;
+        playUtils.HPRemove(amount);
         HPChange = 2;
-        healthSlider.value = health;
-        if (health <= 0 && !isDead)
+        healthSlider.value = playUtils.getHealth();
+        if (playUtils.getHealth() <= 0 && !isDead)
         {
             Death();
         }
@@ -98,22 +98,8 @@ public class Player : MonoBehaviour
 
     public void gainHP(float amount)
     {
-        if (health < maxHP)
-        {
-            health += amount;
-            if (health > maxHP)
-            {
-                Debug.Log("don't cheat");
-                health = maxHP;
-            }
-            HPChange = 1;
-            healthSlider.value = health;
-        }
-        else
-        {
-            Debug.Log("HP is already full");
-        }
-
+        playUtils.HPGrant(amount);
+        HPChange = 1;
+        healthSlider.value = playUtils.getHealth();
     }
-
 }

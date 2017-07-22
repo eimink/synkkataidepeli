@@ -50,6 +50,35 @@ public class EditModeTest {
         var go = new InventoryUtils();
         Assert.AreEqual(false, go.getInventoryData().Contains("dickbutt"));
     }
+    [Test]
+    public void PlayerHP()
+    {
+        var go = new PlayerUtils();
+        
+        Assert.AreEqual(100, go.getHealth());
+    }
+    [Test]
+    public void PlayerHPGainDoesntGoOverHundred()
+    {
+        var go = new PlayerUtils();
+        go.HPGrant(50);
+        Assert.AreEqual(100, go.getHealth());
+    }
+    [Test]
+    public void PlayerHPLose()
+    {
+        var go = new PlayerUtils();
+        go.HPRemove(50);
+        Assert.AreEqual(50, go.getHealth());
+    }
+
+    public void PlayerHPGain()
+    {
+        var go = new PlayerUtils();
+        go.HPRemove(50);
+        go.HPGrant(25);
+        Assert.AreEqual(75, go.getHealth());
+    }
     // A UnityTest behaves like a coroutine in PlayMode
     // and allows you to yield null to skip a frame in EditMode
     [UnityTest]
