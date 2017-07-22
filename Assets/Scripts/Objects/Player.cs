@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gameController = GameObject.FindWithTag("GameController");
+		damageImage = GameObject.Find("DamageImage").GetComponent<Image>();
+		healthSlider = GameObject.Find("HealthSlider").GetComponent<Slider>();
     }
 
     void Update()

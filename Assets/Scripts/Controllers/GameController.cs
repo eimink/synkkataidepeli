@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameController : MonoBehaviour
 {
@@ -9,14 +10,40 @@ public class GameController : MonoBehaviour
     private bool restart;
     private int storystate;
     private GameObject canvasController;
+	private LevelGenerator levelGen;
+	private GameObject mainCamera;
+	public GameObject dickButt;
 
-    void Start ()
+	public event EventHandler onGameInitialized;
+
+    void Awake ()
     {
+		levelGen = GameObject.Find("LevelGenerator").GetComponent<BitmapLevelGenerator>();
         gameOver = false;
         restart = false;
-        storystate = 1;
-        canvasController = GameObject.Find("CanvasController");
+        storystate = 0;
+        
+		levelGen.onLevelGenerated += delegate(object sender, EventArgs e)
+		{
+			Init();
+		};
     }
+
+	void Init()
+	{
+		storystate = 1;
+		GameObject spawnPoint = GameObject.FindWithTag("SpawnPoint");
+		canvasController = GameObject.Find("CanvasController");
+		mainCamera = GameObject.FindWithTag("MainCamera");
+		CameraController c = mainCamera.GetComponent<CameraController>();
+		if (spawnPoint == null) Debug.Log("spawn missing!");
+		c.player = GameObject.Instantiate(dickButt,spawnPoint.transform.position,Quaternion.identity);
+		if (onGameInitialized != null)
+		{
+			Debug.Log("onGameGenerated");
+			onGameInitialized(this, null);
+		}
+	}
 
     void Update()
     {

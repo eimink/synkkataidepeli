@@ -18,6 +18,7 @@ public class LevelGenerator : MonoBehaviour {
 	public GameObject floorTile;
 	public Color floorColor;
 	public bool Ready {get{return m_ready;}}
+	public event EventHandler onLevelGenerated;
 
 	GameObject m_levelParent;
 	bool m_ready = false;
@@ -101,6 +102,11 @@ public class LevelGenerator : MonoBehaviour {
 			}
 		}
 		m_ready = true;
+		if (onLevelGenerated != null)
+		{
+			Debug.Log("onLevelGenerated");
+			onLevelGenerated(this,null);
+		}
 	}
 
 	protected void GenerateBounds(int width, int height)

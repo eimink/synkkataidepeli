@@ -8,10 +8,17 @@ public class ReactingWithPlayer : MonoBehaviour {
     private GameObject player;
     private Inventory checkItem;
     // Use this for initialization
-    void Start () {
-        player = GameObject.FindWithTag("Player");
-        checkItem = (Inventory)player.GetComponent(typeof(Inventory));
+    void Awake () {
+		GameObject.Find("GameController").GetComponent<GameController>().onGameInitialized += delegate(object sender, System.EventArgs e)
+		{
+			Init();
+		};
     }
+
+	void Init () {
+		player = GameObject.FindWithTag("Player");
+		checkItem = (Inventory)player.GetComponent(typeof(Inventory));
+	}
 
     void OnTriggerEnter2D(Collider2D col)
     {

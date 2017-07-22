@@ -12,10 +12,19 @@ public class Inventory : MonoBehaviour {
     private InventoryUtils invUtils = new InventoryUtils();
 
     void Start() {
-        collectablesMax = 7;
-        setCollectables();
-        disableKeyImages();
+		GameObject.Find("GameController").GetComponent<GameController>().onGameInitialized += delegate(object sender, System.EventArgs e)
+			{
+				Init();
+			};
     }
+
+
+	void Init() {
+		collectablesText = GameObject.Find("Collectables").GetComponent<Text>();
+		collectablesMax = 7;
+		setCollectables();
+		disableKeyImages();
+	}
 
     public void setInventory(string item) {
         invUtils.setInventoryData(item);
