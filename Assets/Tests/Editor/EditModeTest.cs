@@ -17,12 +17,19 @@ public class EditModeTest {
         var go = new GameObject("dickbutt");
         Assert.AreEqual("dickbutt", go.name);
     }
+    [Test]
+    public void IsDickbuttActive()
+    {
+        var go = new GameObject("dickbutt");
+        Assert.AreEqual(true, go.active);
+    }
     // A UnityTest behaves like a coroutine in PlayMode
     // and allows you to yield null to skip a frame in EditMode
     [UnityTest]
 	public IEnumerator EditModeTestWithEnumeratorPasses() {
-		// Use the Assert class to test conditions.
-		// yield to skip a frame
+        // Use the Assert class to test conditions.
+        // yield to skip a frame
+
 		yield return null;
 	}
 }
