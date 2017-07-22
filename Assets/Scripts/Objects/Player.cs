@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     {
         if (HPChange == 2)
         {
+            gameController.SendMessage("ShowStorypoint");
             damageImage.color = flashDMGColor;
         }
         else if (HPChange ==1) {
@@ -75,6 +76,8 @@ public class Player : MonoBehaviour
 
         // Death animation
         animateDeath();
+
+        gameController.SendMessage("ShowStorypoint");
 
         // Call gameController that blargh im ded
         gameController.SendMessage("PlayerDied");
