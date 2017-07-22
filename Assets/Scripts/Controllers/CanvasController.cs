@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class CanvasController : MonoBehaviour
 {
 
-    GameObject[] storypoints;
+    Dictionary<string, GameObject> storypoints;
     string activeCanvasID;
     private GameObject player;
     void Awake()
@@ -20,7 +21,6 @@ public class CanvasController : MonoBehaviour
 
 	void Init()
 	{
-		
 		player = GameObject.FindWithTag("Player");
 	}
 
@@ -53,11 +53,14 @@ public class CanvasController : MonoBehaviour
     {
         if(scene.name == "storyline" && mode == LoadSceneMode.Additive)
         {
-            storypoints = GameObject.FindGameObjectsWithTag("StoryPoint");
-            for (int i = 0; i < storypoints.Length; ++i)
+            storypoints = new Dictionary<string, GameObject>();
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("StoryPoint");
+            for (int i = 0; i < objs.Length; ++i)
             {
-                Debug.Log("Setting storypoint" + i + " inactive");
-                storypoints[i].SetActive(false);
+                GameObject o = objs[i];
+                Debug.Log("Setting storypoint" + o.name + " inactive");
+                o.SetActive(false);
+                storypoints.Add(o.name, o);
             }
         }
     }
@@ -65,24 +68,12 @@ public class CanvasController : MonoBehaviour
     public void ActivateStorypoint(string name)
     {
         Debug.Log("Activating storypoint " + name);
-        for(int i = 0; i < storypoints.Length; ++i)
-        {
-            if(storypoints[i].name == name) {
-                Debug.Log("Found storypoint for activation");
-                storypoints[i].SetActive(true);
-                activeCanvasID = name;
-            }
-        }
+        storypoints[name].SetActive(true);
+        activeCanvasID = name;
     }
 
     public void DeactivateStorypoint() {
-        for(int i = 0; i < storypoints.Length; ++i)
-        {
-            if(storypoints[i].name == activeCanvasID) {
-                Debug.Log("Found storypoint for deactivation");
-                storypoints[i].SetActive(false);
-                activeCanvasID = "";
-            }
-        }
+        storypoints[activeCanvasID].SetActive(false);
+        activeCanvasID = "";
     }
 }
