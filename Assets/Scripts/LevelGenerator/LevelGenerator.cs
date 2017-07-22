@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class LevelGenerator : MonoBehaviour {
 
 	public Color spawnColor;
+	public Color goalColor;
 	public GeneratorBlock[] blocks;
 	public GameObject wallTile;
 	public GameObject floorTile;
@@ -39,19 +40,24 @@ public class LevelGenerator : MonoBehaviour {
 		GenerateBounds(width,height);
 		GenerateFloor(width,height);
 
-		for (int i = 0; i < width; i++)
+		for (int i = 0; i < height; i++)
 		{
-			for (int j = 0; j < height; j++)
+			for (int j = 0; j < width; j++)
 			{
 				tileColor = pixels[i*width+j];
+				Debug.Log("Now at: " + i + " " + j + " " + tileColor);
 				int idx = FindBlockIndex(tileColor); // Get block from bitmap data
 				if (idx >= 0)
 				{
-					GameObject o = (GameObject)Instantiate(blocks[idx].prefab,new Vector3(i,j,0),Quaternion.identity);
+					GameObject o = (GameObject)Instantiate(blocks[idx].prefab,new Vector3(j,i,0),Quaternion.identity);
 					o.transform.parent = m_levelParent.transform;
 					if (tileColor == spawnColor)
 					{
 						o.tag = "SpawnPoint";
+					}
+					else if (tileColor == goalColor)
+					{
+						o.tag = "Goal";
 					}
 				}
 			}
