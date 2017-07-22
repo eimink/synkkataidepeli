@@ -27,8 +27,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        gameController = (GameObject)GameObject.FindGameObjectsWithTag("GameController")[0];
-
+        gameController = GameObject.FindWithTag("GameController");
     }
 
     void Update()
