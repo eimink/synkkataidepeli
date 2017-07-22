@@ -107,8 +107,10 @@ public class LevelGenerator : MonoBehaviour {
 					else if (tileColor.b == keyColor.b && tileColor.g == keyColor.g)
 					{
 						o.tag = "Key";
+						int id = Convert.ToInt32(tileColor.r*255);
+						o.GetComponent<Key>().set(id);
 						if (o.GetComponent<pickupInventoryItem>() != null)
-							o.GetComponent<pickupInventoryItem>().keyName = "key"+Convert.ToInt32(tileColor.r*255);
+							o.GetComponent<pickupInventoryItem>().keyName = "key"+id;
 					}
 				}
 			}

@@ -71,13 +71,15 @@ MonoBehaviour:
   - key: {r: 0, g: 0.27450982, b: 0.11764707, a: 1}
     prefab: {fileID: 1457332855128870, guid: d8c7822f7013d4642a86a048e35f75b5, type: 2}
   - key: {r: 0, g: 1, b: 1, a: 1}
-    prefab: {fileID: 1070441120378826, guid: d090a9342a68445178a2ac76471883eb, type: 2}
+    prefab: {fileID: 1732819532485982, guid: d42100b93c0e4460086d2c7da03b1c05, type: 2}
   - key: {r: 1, g: 1, b: 0, a: 1}
     prefab: {fileID: 1938650374188106, guid: a6d153656fbdf4dc68ea4dc858cf0447, type: 2}
   - key: {r: 0, g: 1, b: 0.3921569, a: 1}
     prefab: {fileID: 1546482900689556, guid: 676b8e30badd549afb1d4ef35b0d6628, type: 2}
   - key: {r: 0, g: 0.27450982, b: 1, a: 1}
     prefab: {fileID: 1512483064437304, guid: 35446d363f6834c45baed3e0ab6a7801, type: 2}
+  - key: {r: 0.9803922, g: 1, b: 0, a: 1}
+    prefab: {fileID: 1546482900689556, guid: 676b8e30badd549afb1d4ef35b0d6628, type: 2}
   wallTile: {fileID: 1154140699387954, guid: d76b80e7368ae472a81626d16c474abf, type: 2}
   floorTile: {fileID: 1729986329646442, guid: 91762054ec1814775a88a98391852534, type: 2}
   floorColor: {r: 0, g: 0, b: 0, a: 0}
