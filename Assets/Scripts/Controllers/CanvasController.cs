@@ -19,6 +19,7 @@ public class CanvasController : MonoBehaviour
     {
         if(activeCanvasID != "") {
             if(Input.GetKeyDown(KeyCode.Space)) {
+                player.SendMessage("setPlayerMovement", true);
                 DeactivateStorypoint();
             }
         }

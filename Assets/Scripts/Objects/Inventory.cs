@@ -52,6 +52,7 @@ public class Inventory : MonoBehaviour {
         invUtils.collectItem(collected);
         setCollectables();
         GameObject player = this.gameObject;
+
         player.SendMessage("setPlayerMovement", false);
         player.SendMessage("sendGameEvent", "ShowStorypoint");
         

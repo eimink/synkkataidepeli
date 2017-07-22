@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     {
         gameOver = false;
         restart = false;
+        storystate = 1;
         canvasController = GameObject.Find("CanvasController");
     }
 
