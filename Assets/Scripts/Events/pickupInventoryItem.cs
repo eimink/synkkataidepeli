@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class floatingChange : MonoBehaviour {
+public class pickupInventoryItem : MonoBehaviour {
 
-    public float floatChange;
-    public bool staysActive=false;
-    public string methodToCall;
+
+    public string keyName;
+    public bool staysActive = false;
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {
-            col.gameObject.SendMessage(methodToCall, floatChange);
+            col.gameObject.SendMessage("setInventory", keyName);
             gameObject.SetActive(staysActive);
         }
     }

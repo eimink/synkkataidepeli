@@ -30,7 +30,7 @@ public class Inventory : MonoBehaviour {
 
     private void setCollectables()
     {
-        collectablesText.text = "Collectables: " + collectablesCount.ToString() + "/" + collectablesMax.ToString();
+        collectablesText.text = "Heart Pieces: " + collectablesCount.ToString() + "/" + collectablesMax.ToString();
     }
 
     public void collectedItem(int collected)
