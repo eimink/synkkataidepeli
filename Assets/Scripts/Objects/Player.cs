@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     private bool playerMovement = true;
     private int collectablesCount;
     private GameObject gameController;
+    private int maxHP = 100;
 
     void Start()
     {
@@ -93,15 +94,15 @@ public class Player : MonoBehaviour
             Death();
         }
     }
-
+    
     public void gainHP(float amount)
     {
-        if (health < 100) {
+        if (health < maxHP) {
             health += amount;
-            if (health > 100)
+            if (health > maxHP)
             {
                 Debug.Log("don't cheat");
-                health = 100;
+                health = maxHP;
             }
             HPChange = 1;
             healthSlider.value = health;
