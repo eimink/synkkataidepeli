@@ -6,6 +6,10 @@ public class LevelGenerator : MonoBehaviour {
 
 	public Color spawnColor;
 	public Color goalColor;
+	public Color interestColor;
+	public Color healthPackColor;
+	public Color blockerColor;
+	public Color keyColor;
 	public GeneratorBlock[] blocks;
 	public GameObject wallTile;
 	public GameObject floorTile;
@@ -14,6 +18,7 @@ public class LevelGenerator : MonoBehaviour {
 
 	GameObject m_levelParent;
 	bool m_ready = false;
+
 
 	// Use this for initialization
 	void Start () {
@@ -45,7 +50,6 @@ public class LevelGenerator : MonoBehaviour {
 			for (int j = 0; j < width; j++)
 			{
 				tileColor = pixels[i*width+j];
-				Debug.Log("Now at: " + i + " " + j + " " + tileColor);
 				int idx = FindBlockIndex(tileColor); // Get block from bitmap data
 				if (idx >= 0)
 				{
@@ -58,6 +62,23 @@ public class LevelGenerator : MonoBehaviour {
 					else if (tileColor == goalColor)
 					{
 						o.tag = "Goal";
+					}
+					else if (tileColor == interestColor)
+					{
+						o.tag = "StoryPoint";
+					}
+					else if (tileColor == healthPackColor)
+					{
+						o.tag = "HealthPack";
+					}
+					else if (tileColor.b == blockerColor.b && tileColor.g == blockerColor.b)
+					{
+						o.tag = "Blocker";
+					}
+
+					else if (tileColor.b == keyColor.b && tileColor.g == keyColor.b)
+					{
+						o.tag = "Key";
 					}
 				}
 			}
