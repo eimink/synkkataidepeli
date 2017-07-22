@@ -860,11 +860,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114364416009731218, guid: 6f5df983fc21c4cb88c62303b1c8d7c5,
-        type: 2}
-      propertyPath: blocks.Array.size
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4382648623509474, guid: 6f5df983fc21c4cb88c62303b1c8d7c5, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -896,58 +891,6 @@ Prefab:
     - target: {fileID: 4382648623509474, guid: 6f5df983fc21c4cb88c62303b1c8d7c5, type: 2}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364416009731218, guid: 6f5df983fc21c4cb88c62303b1c8d7c5,
-        type: 2}
-      propertyPath: blocks.Array.data[4].key.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364416009731218, guid: 6f5df983fc21c4cb88c62303b1c8d7c5,
-        type: 2}
-      propertyPath: blocks.Array.data[4].key.b
-      value: 0.11764707
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364416009731218, guid: 6f5df983fc21c4cb88c62303b1c8d7c5,
-        type: 2}
-      propertyPath: blocks.Array.data[4].key.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364416009731218, guid: 6f5df983fc21c4cb88c62303b1c8d7c5,
-        type: 2}
-      propertyPath: blocks.Array.data[4].prefab
-      value: 
-      objectReference: {fileID: 1425947117378676, guid: e6e3396d810474b539eb9fbe40859d7e,
-        type: 2}
-    - target: {fileID: 114364416009731218, guid: 6f5df983fc21c4cb88c62303b1c8d7c5,
-        type: 2}
-      propertyPath: blocks.Array.data[5].key.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364416009731218, guid: 6f5df983fc21c4cb88c62303b1c8d7c5,
-        type: 2}
-      propertyPath: blocks.Array.data[5].key.b
-      value: 0.3921569
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364416009731218, guid: 6f5df983fc21c4cb88c62303b1c8d7c5,
-        type: 2}
-      propertyPath: blocks.Array.data[5].key.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364416009731218, guid: 6f5df983fc21c4cb88c62303b1c8d7c5,
-        type: 2}
-      propertyPath: blocks.Array.data[5].prefab
-      value: 
-      objectReference: {fileID: 1425947117378676, guid: e6e3396d810474b539eb9fbe40859d7e,
-        type: 2}
-    - target: {fileID: 114364416009731218, guid: 6f5df983fc21c4cb88c62303b1c8d7c5,
-        type: 2}
-      propertyPath: blocks.Array.data[4].key.g
-      value: 0.27450982
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364416009731218, guid: 6f5df983fc21c4cb88c62303b1c8d7c5,
-        type: 2}
-      propertyPath: blocks.Array.data[5].key.g
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f5df983fc21c4cb88c62303b1c8d7c5, type: 2}
@@ -1714,7 +1657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.45, y: 0}
+  m_AnchoredPosition: {x: 3.449997, y: 0}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2025666299

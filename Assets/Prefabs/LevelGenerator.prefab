@@ -67,9 +67,9 @@ MonoBehaviour:
     prefab: {fileID: 1352636406589068, guid: ecf1a55259e9a428aacc6c32426ff5c2, type: 2}
   - key: {r: 1, g: 0, b: 1, a: 1}
     prefab: {fileID: 1475066228347660, guid: 949e4ab96367649a99d9991c20fc1dcf, type: 2}
-  - key: {r: 0, g: 0.27450982, b: 0.11764707, a: 0}
+  - key: {r: 0, g: 0.27450982, b: 0.11764707, a: 1}
     prefab: {fileID: 1425947117378676, guid: e6e3396d810474b539eb9fbe40859d7e, type: 2}
-  - key: {r: 0, g: 1, b: 0.3921569, a: 0}
+  - key: {r: 0, g: 1, b: 0.3921569, a: 1}
     prefab: {fileID: 1070441120378826, guid: d090a9342a68445178a2ac76471883eb, type: 2}
   wallTile: {fileID: 1154140699387954, guid: d76b80e7368ae472a81626d16c474abf, type: 2}
   floorTile: {fileID: 1729986329646442, guid: 91762054ec1814775a88a98391852534, type: 2}
