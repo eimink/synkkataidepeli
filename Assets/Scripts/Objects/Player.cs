@@ -7,11 +7,11 @@ public class Player : MonoBehaviour
     public float speed;
     public float period = 6.0f;
     public Image damageImage;
-    public float flashSpeed = 5f;
     public Slider healthSlider;
     public Text gameStateText;
 
-
+    private float flashSpeed = 5f;
+    private Vector3 movement;
     private Color flashDMGColor = new Color(1f, 0f, 1f, 0.1f);
     private Color flashHPColor = new Color(0f, 1f, 0f, 0.1f);
     private float tickDMG = 0.1f;
@@ -53,8 +53,7 @@ public class Player : MonoBehaviour
         { 
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
-            Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0f);
-            rb.AddForce(movement * speed);
+            Move(moveHorizontal, moveVertical);
         }
 
         if (Time.time > nextActionTime)
@@ -63,7 +62,12 @@ public class Player : MonoBehaviour
             loseHP(tickDMG);
         }
     }
-
+    private void Move(float h, float v)
+    {
+        movement.Set(h, v, 0f);
+        movement = movement.normalized * speed * Time.deltaTime;
+        rb.MovePosition(transform.position + movement);
+    }
     private void Death()
     {
         // Set the death flag so this function won't be called again.

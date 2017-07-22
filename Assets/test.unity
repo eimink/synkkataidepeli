@@ -1189,6 +1189,11 @@ Prefab:
       propertyPath: keyImages.Array.data[5]
       value: 
       objectReference: {fileID: 822303020}
+    - target: {fileID: 114626693991107394, guid: 674176e24b5674dafb57d2a8f425cbb7,
+        type: 2}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 674176e24b5674dafb57d2a8f425cbb7, type: 2}
   m_IsPrefabParent: 0
