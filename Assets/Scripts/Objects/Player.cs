@@ -10,20 +10,17 @@ public class Player : MonoBehaviour
     public Image damageImage;
     public float flashSpeed = 5f;
     public Slider healthSlider;
-    public Text collectablesText;
     public Text gameStateText;
-    public int collectablesMax;
+
 
     private Color flashDMGColor = new Color(1f, 0f, 0f, 0.1f);
     private Color flashHPColor = new Color(0f, 1f, 0f, 0.1f);
-
     private float tickDMG = 0.1f;
     private int HPChange;
     private bool isDead;
     private float nextActionTime = 0.0f;
     private Rigidbody2D rb;
     private bool playerMovement = true;
-    private int collectablesCount;
     private GameObject gameController;
     private float maxHP = 100.0f;
 
@@ -31,9 +28,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gameController = (GameObject)GameObject.FindGameObjectsWithTag("GameController")[0];
-        collectablesCount = 0;
-        collectablesMax = 6;
-        setCollectables();
+
     }
 
     void Update()
@@ -49,7 +44,6 @@ public class Player : MonoBehaviour
         {
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
-
         // Reset the damaged flag.
         HPChange = 0;
     }
@@ -68,13 +62,7 @@ public class Player : MonoBehaviour
         {
             nextActionTime += period;
             loseHP(tickDMG);
-            
         }
-    }
-
-    private void setCollectables()
-    {
-        collectablesText.text = "Collectables: " + collectablesCount.ToString() + "/" + collectablesMax.ToString();
     }
 
     private void Death()
@@ -99,10 +87,11 @@ public class Player : MonoBehaviour
             Death();
         }
     }
-    
+
     public void gainHP(float amount)
     {
-        if (health < maxHP) {
+        if (health < maxHP)
+        {
             health += amount;
             if (health > maxHP)
             {
@@ -117,12 +106,6 @@ public class Player : MonoBehaviour
             Debug.Log("HP is already full");
         }
 
-    }
-    
-    public void collectedItem(int collected)
-    {
-        collectablesCount += collected;
-        setCollectables();
     }
 
 }
