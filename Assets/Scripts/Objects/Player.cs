@@ -53,6 +53,12 @@ public class Player : MonoBehaviour
         { 
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
+           /* if (Input.GetTouch(0).phase == TouchPhase.Began ||Input.GetMouseButtonDown(0))
+            {
+                Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                moveVertical = -touchDeltaPosition.y;
+                moveHorizontal = -touchDeltaPosition.x;
+            }*/
             Move(moveHorizontal, moveVertical);
             tickHandler();
         }
@@ -72,6 +78,7 @@ public class Player : MonoBehaviour
         movement.Set(h, v, 0f);
         movement = movement.normalized * speed * Time.deltaTime;
         rb.MovePosition(transform.position + movement);
+
     }
     private void Death()
     {
