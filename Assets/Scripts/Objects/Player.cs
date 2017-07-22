@@ -53,12 +53,12 @@ public class Player : MonoBehaviour
         { 
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
-            if (Input.GetTouch(0).phase == TouchPhase.Began ||Input.GetMouseButtonDown(0))
+           /* if (Input.GetTouch(0).phase == TouchPhase.Began ||Input.GetMouseButtonDown(0))
             {
                 Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
                 moveVertical = -touchDeltaPosition.y;
                 moveHorizontal = -touchDeltaPosition.x;
-            }
+            }*/
             Move(moveHorizontal, moveVertical);
             tickHandler();
         }
