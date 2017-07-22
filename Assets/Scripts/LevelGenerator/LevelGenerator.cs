@@ -7,6 +7,7 @@ public class LevelGenerator : MonoBehaviour {
 	public Color spawnColor;
 	public Color goalColor;
 	public Color interestColor;
+	public Color enemyColor;
 	public Color healthPackColor;
 	public Color blockerColor;
 	public Color keyColor;
@@ -71,14 +72,19 @@ public class LevelGenerator : MonoBehaviour {
 					{
 						o.tag = "HealthPack";
 					}
+					else if (tileColor == enemyColor)
+					{
+						o.tag = "Enemy";
+					}
 					else if (tileColor.b == blockerColor.b && tileColor.g == blockerColor.b)
 					{
 						o.tag = "Blocker";
+						o.GetComponent<ReactingWithPlayer>().keyName = "key"+tileColor.r*255;
 					}
-
 					else if (tileColor.b == keyColor.b && tileColor.g == keyColor.b)
 					{
 						o.tag = "Key";
+						o.GetComponent<pickupInventoryItem>().keyName = "key"+tileColor.r*255;
 					}
 				}
 			}
