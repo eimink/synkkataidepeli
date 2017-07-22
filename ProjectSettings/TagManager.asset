@@ -9,7 +9,7 @@ TagManager:
   - Goal
   - StoryPoint
   - HealthPack
-  - Blocker
+  - Friend
   layers:
   - Default
   - TransparentFX
