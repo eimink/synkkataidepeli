@@ -21,11 +21,12 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private bool playerMovement = true;
     private int collectablesCount;
-    
+    private GameObject gameController;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gameController = (GameObject)GameObject.FindGameObjectsWithTag("GameController")[0];
         collectablesCount = 0;
         collectablesMax = 6;
         setCollectables();
@@ -54,10 +55,10 @@ public class Player : MonoBehaviour
     {
         if (playerMovement == true)
         { 
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0f);
-        rb.AddForce(movement * speed);
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
+            Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0f);
+            rb.AddForce(movement * speed);
         }
 
         if (Time.time > nextActionTime)
@@ -78,8 +79,6 @@ public class Player : MonoBehaviour
             Death();
         }
         return health;
-
-
     }
 
     public float gainHP(float amount)
@@ -108,5 +107,7 @@ public class Player : MonoBehaviour
         // Turn off the movement
         playerMovement = false;
         
+        // Call gameController that blargh im ded
+        gameController.SendMessage("PlayerDied");
     }
 }
