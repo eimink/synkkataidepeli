@@ -13,15 +13,17 @@ public class Inventory : MonoBehaviour {
     private List<string> inventory = new List<string>();
 
 
-    void Start () {
+    void Start() {
         collectablesCount = 0;
         collectablesMax = 7;
         setCollectables();
+        disableKeyImages();
     }
+
     public void setInventory(string item) {
         inventory.Add(item);
         Debug.Log(item + " added to the inventory");
-        setKeyUIPicture(item);
+        enableKeyImage(item);
     }
 
     public bool getInventory(string item)
@@ -29,15 +31,18 @@ public class Inventory : MonoBehaviour {
         bool inventoryItem = inventory.Contains(item);
         return inventoryItem;
     }
-    private void setKeyUIPicture(string whichKey) {
 
+    private void enableKeyImage(string item)
+    {
+        keyImages.Where(x => x.name.Contains(item)).First().enabled = true;
     }
-    private void enableKeyImages()
+
+    private void disableKeyImages()
     {
         for (int i = 0; i < keyImages.Count(); i++)
         {
             Debug.Log(i);
-            keyImages[i].enabled = true;
+            keyImages[i].enabled = false;
         }
     }
 
