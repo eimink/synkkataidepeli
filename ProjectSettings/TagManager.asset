@@ -10,6 +10,8 @@ TagManager:
   - StoryPoint
   - HealthPack
   - Friend
+  - Blocker
+  - Key
   layers:
   - Default
   - TransparentFX
