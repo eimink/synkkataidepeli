@@ -38,7 +38,6 @@ public class Inventory : MonoBehaviour {
     {
         for (int i = 0; i < keyImages.Count(); i++)
         {
-            Debug.Log(i);
             keyImages[i].enabled = false;
         }
     }

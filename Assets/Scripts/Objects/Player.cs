@@ -54,14 +54,19 @@ public class Player : MonoBehaviour
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
             Move(moveHorizontal, moveVertical);
+            tickHandler();
         }
+    }
 
+    private void tickHandler()
+    {
         if (Time.time > nextActionTime)
         {
             nextActionTime += period;
             loseHP(tickDMG);
         }
     }
+
     private void Move(float h, float v)
     {
         movement.Set(h, v, 0f);
@@ -74,7 +79,7 @@ public class Player : MonoBehaviour
         gameStateText.text = "IT'S GAME OVER MAN, GAME OVER! PRESS R TO TRY AGAIN";
         playerMovement = false;
         animateDeath();
-        gameController.SendMessage("PlayerDied");
+        sendGameEvent("PlayerDied");
     }
     private void animateDeath() {
         transform.Rotate(0,0, -90);
@@ -90,11 +95,18 @@ public class Player : MonoBehaviour
             Death();
         }
     }
-
+    public void setPlayerMovement(bool value)
+    {
+        playerMovement = value;
+    }
     public void gainHP(float amount)
     {
         playUtils.HPGrant(amount);
         HPChange = 1;
         healthSlider.value = playUtils.getHealth();
+    }
+
+    public void sendGameEvent(string eventName) {
+        gameController.SendMessage(eventName);
     }
 }
