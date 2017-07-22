@@ -35,16 +35,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // If the player has just been damaged...
         if (HPChange == 2)
         {
-            // ... set the colour of the damageImage to the flash colour.
             damageImage.color = flashColour;
         }
-        // Otherwise...
         else
         {
-            // ... transition the colour back to clear.
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
 
@@ -66,8 +62,13 @@ public class Player : MonoBehaviour
         {
             nextActionTime += period;
             health = loseHP(tickDMG);
-            // execute block of code here
+            
         }
+    }
+
+    private void setCollectables()
+    {
+        collectablesText.text = "Collectables: " + collectablesCount.ToString() + "/" + collectablesMax.ToString();
     }
 
     public float loseHP(float amount)
@@ -90,10 +91,7 @@ public class Player : MonoBehaviour
         return health;
 
     }
-    private void setCollectables()
-    {
-        collectablesText.text = "Collectables: " + collectablesCount.ToString() + "/" + collectablesMax.ToString();
-    }
+    
     public void collectedItem(int collected)
     {
         collectablesCount += collected;
