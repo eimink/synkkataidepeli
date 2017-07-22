@@ -70,11 +70,20 @@ public class Player : MonoBehaviour
         // Set the death flag so this function won't be called again.
         isDead = true;
         gameStateText.text = "IT'S GAME OVER MAN, GAME OVER! PRESS R TO TRY AGAIN";
+
         // Turn off the movement
         playerMovement = false;
 
+        // Death animation
+        animateDeath();
+
         // Call gameController that blargh im ded
         gameController.SendMessage("PlayerDied");
+    }
+
+    // blarg im ded
+    private void animateDeath() {
+        transform.Rotate(0,0, -90);
     }
 
     public void loseHP(float amount)
