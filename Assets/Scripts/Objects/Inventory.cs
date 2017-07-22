@@ -8,6 +8,7 @@ using System.Linq;
 public class Inventory : MonoBehaviour {
     public int collectablesMax;
     public Text collectablesText;
+    public Image[] keyImages = new Image[5];
     private int collectablesCount;
     private List<string> inventory = new List<string>();
 
@@ -30,6 +31,14 @@ public class Inventory : MonoBehaviour {
     }
     private void setKeyUIPicture(string whichKey) {
 
+    }
+    private void enableKeyImages()
+    {
+        for (int i = 0; i < keyImages.Count(); i++)
+        {
+            Debug.Log(i);
+            keyImages[i].enabled = true;
+        }
     }
 
     private void setCollectables()
