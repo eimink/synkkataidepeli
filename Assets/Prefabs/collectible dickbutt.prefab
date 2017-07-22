@@ -21,11 +21,9 @@ GameObject:
   - component: {fileID: 4977955948150860}
   - component: {fileID: 212269287829297562}
   - component: {fileID: 61227506134296108}
-  - component: {fileID: 114152339239057356}
   - component: {fileID: 50510999265245446}
   - component: {fileID: 61642167146826768}
   - component: {fileID: 114779430453182580}
-  - component: {fileID: 114510294307984168}
   m_Layer: 0
   m_Name: collectible dickbutt
   m_TagString: Friend
@@ -276,37 +274,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114152339239057356
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1352636406589068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5aef8fffd453742ae498428f1359ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectablesMax: 0
-  collectablesText: {fileID: 0}
---- !u!114 &114510294307984168
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1352636406589068}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54abbfff005d6412080f08e08786469a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  period: 6
-  health: 100
-  damageImage: {fileID: 0}
-  flashSpeed: 5
-  healthSlider: {fileID: 0}
-  gameStateText: {fileID: 0}
 --- !u!114 &114779430453182580
 MonoBehaviour:
   m_ObjectHideFlags: 1

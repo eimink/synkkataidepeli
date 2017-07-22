@@ -53,11 +53,8 @@ GameObject:
   - component: {fileID: 4830032105741140}
   - component: {fileID: 212102217368214144}
   - component: {fileID: 61753640196671874}
-  - component: {fileID: 114368122138566122}
   - component: {fileID: 50894889534099584}
   - component: {fileID: 61811100568895516}
-  - component: {fileID: 114949545128153078}
-  - component: {fileID: 114934825119159280}
   m_Layer: 0
   m_Name: friend dickbutt
   m_TagString: Friend
@@ -276,51 +273,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114368122138566122
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1844774189664602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5aef8fffd453742ae498428f1359ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectablesMax: 0
-  collectablesText: {fileID: 0}
---- !u!114 &114934825119159280
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1844774189664602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40d2ef26632e797409c81ea67603c8f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floatChange: 150
-  staysActive: 1
-  methodToCall: gainHP
---- !u!114 &114949545128153078
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1844774189664602}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54abbfff005d6412080f08e08786469a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  period: 6
-  health: 100
-  damageImage: {fileID: 0}
-  flashSpeed: 5
-  healthSlider: {fileID: 0}
-  gameStateText: {fileID: 0}
 --- !u!212 &212102217368214144
 SpriteRenderer:
   m_ObjectHideFlags: 1

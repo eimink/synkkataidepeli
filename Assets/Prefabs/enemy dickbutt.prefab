@@ -37,11 +37,8 @@ GameObject:
   - component: {fileID: 4133070999524764}
   - component: {fileID: 212922519174530376}
   - component: {fileID: 61816106538536346}
-  - component: {fileID: 114643692295087430}
   - component: {fileID: 50135964580793482}
   - component: {fileID: 61397326305186706}
-  - component: {fileID: 114325160345885790}
-  - component: {fileID: 114464904616788722}
   - component: {fileID: 114552487424968146}
   m_Layer: 0
   m_Name: enemy dickbutt
@@ -277,35 +274,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114325160345885790
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1475066228347660}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54abbfff005d6412080f08e08786469a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  period: 6
-  health: 100
-  damageImage: {fileID: 0}
-  flashSpeed: 5
-  healthSlider: {fileID: 0}
-  gameStateText: {fileID: 0}
---- !u!114 &114464904616788722
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1475066228347660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114552487424968146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,19 +288,6 @@ MonoBehaviour:
   floatChange: 50
   staysActive: 1
   methodToCall: loseHP
---- !u!114 &114643692295087430
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1475066228347660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5aef8fffd453742ae498428f1359ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectablesMax: 0
-  collectablesText: {fileID: 0}
 --- !u!212 &212922519174530376
 SpriteRenderer:
   m_ObjectHideFlags: 1
