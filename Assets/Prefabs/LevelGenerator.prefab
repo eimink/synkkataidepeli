@@ -53,11 +53,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnColor: {r: 1, g: 1, b: 0, a: 1}
   goalColor: {r: 0.98039216, g: 1, b: 0, a: 1}
-  interestColor: {r: 0, g: 1, b: 1, a: 0}
+  interestColor: {r: 0, g: 1, b: 0.39215687, a: 0}
   enemyColor: {r: 1, g: 0, b: 1, a: 1}
   healthPackColor: {r: 0, g: 1, b: 0, a: 1}
   blockerColor: {r: 0, g: 0.27450982, b: 0.11764706, a: 1}
-  keyColor: {r: 0, g: 1, b: 0.39215687, a: 1}
+  keyColor: {r: 0, g: 1, b: 1, a: 1}
   blocks:
   - key: {r: 1, g: 0, b: 0, a: 1}
     prefab: {fileID: 1084484149973692, guid: 8a5fe4db977204ffb96b4fbea76f741c, type: 2}
@@ -69,7 +69,7 @@ MonoBehaviour:
     prefab: {fileID: 1251333198210816, guid: 4d4917fa0f7344b5a9b7d0aabc417466, type: 2}
   - key: {r: 0, g: 0.27450982, b: 0.11764707, a: 1}
     prefab: {fileID: 1425947117378676, guid: e6e3396d810474b539eb9fbe40859d7e, type: 2}
-  - key: {r: 0, g: 1, b: 0.3921569, a: 1}
+  - key: {r: 0, g: 1, b: 1, a: 1}
     prefab: {fileID: 1070441120378826, guid: d090a9342a68445178a2ac76471883eb, type: 2}
   wallTile: {fileID: 1154140699387954, guid: d76b80e7368ae472a81626d16c474abf, type: 2}
   floorTile: {fileID: 1729986329646442, guid: 91762054ec1814775a88a98391852534, type: 2}
