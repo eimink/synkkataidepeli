@@ -24,12 +24,15 @@ public class Player : MonoBehaviour
     private float x = 0.0f;
     private float y = 0.0f;
     private float dragSensitivity = 2;
+    private SpriteRenderer spriteRenderer;
+    private bool lookRight = true;
 
     private PlayerUtils playUtils = new PlayerUtils();
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         gameController = GameObject.FindWithTag("GameController");
 		damageImage = GameObject.Find("DamageImage").GetComponent<Image>();
 		healthSlider = GameObject.Find("HealthSlider").GetComponent<Slider>();
@@ -86,11 +89,24 @@ public class Player : MonoBehaviour
 
     private void Move(float h, float v)
     {
+        if (h > 0 && lookRight)
+        {
+            lookRight = false;
+        }
+        else if(h < 0 && !lookRight)
+        {
+            lookRight = true;
+        }
+        flipVision();
         movement.Set(h, v, 0f);
         movement = movement.normalized * speed * Time.deltaTime;
         rb.MovePosition(transform.position + movement);
-
     }
+
+    private void flipVision() {
+        spriteRenderer.flipX = lookRight;
+    }
+
     private void Death()
     {
         isDead = true;
