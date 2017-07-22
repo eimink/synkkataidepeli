@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour {
     public Image[] keyImages = new Image[5];
     private InventoryUtils invUtils = new InventoryUtils();
 
-    void Start() {
+    void Awake() {
 		GameObject.Find("GameController").GetComponent<GameController>().onGameInitialized += delegate(object sender, System.EventArgs e)
 			{
 				Init();
@@ -21,6 +21,10 @@ public class Inventory : MonoBehaviour {
 
 	void Init() {
 		collectablesText = GameObject.Find("Collectables").GetComponent<Text>();
+		for (int i = 0; i < keyImages.Count(); i++)
+		{
+			keyImages[i] = GameObject.Find("Key"+i.ToString()).GetComponent<Image>();
+		}
 		collectablesMax = 7;
 		setCollectables();
 		disableKeyImages();
@@ -53,6 +57,7 @@ public class Inventory : MonoBehaviour {
 
     private void setCollectables()
     {
+		Debug.Log(collectablesText);
         collectablesText.text = "Heart Pieces: " + invUtils.collectedItems().ToString() + "/" + collectablesMax.ToString();
     }
 
