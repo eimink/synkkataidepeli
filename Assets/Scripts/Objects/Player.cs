@@ -34,8 +34,9 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameController = GameObject.FindWithTag("GameController");
-		damageImage = GameObject.Find("DamageImage").GetComponent<Image>();
-		healthSlider = GameObject.Find("HealthSlider").GetComponent<Slider>();
+        damageImage = GameObject.Find("DamageImage").GetComponent<Image>();
+        healthSlider = GameObject.Find("HealthSlider").GetComponent<Slider>();
+        gameStateText = GameObject.Find("GameStateText").GetComponent<Text>();
     }
 
     void Update()
