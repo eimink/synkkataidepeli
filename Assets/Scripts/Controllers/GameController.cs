@@ -70,7 +70,6 @@ public class GameController : MonoBehaviour
 
     public void PlayerDied()
     {
-        gameOver = true;
 		restart = true;
     }
 
