@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intChange: 1
-  staysActive: 0
-  methodToCall: collectedItem
+  staysActive: 1
+  methodToCall: goalTouched
 --- !u!212 &212727736577120150
 SpriteRenderer:
   m_ObjectHideFlags: 1
