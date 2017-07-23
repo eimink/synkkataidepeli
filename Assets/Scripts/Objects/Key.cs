@@ -6,12 +6,12 @@ using System;
 public class Key : MonoBehaviour {
 
 	enum keys {
-		collectable_Key_blue = 1,
-		collectable_Key_green,
-		collectable_Key_pinkish,
+		collectable_Key_pinkish = 1,
+		collectable_Key_blue,
 		collectable_Key_purple,
-		collectable_Key_red,
-		collectable_Key_turquoise
+		collectable_Key_turquoise,
+		collectable_Key_green,
+		collectable_Key_red
 	}
 
 	public void set(int i) {

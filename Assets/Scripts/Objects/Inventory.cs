@@ -23,7 +23,9 @@ public class Inventory : MonoBehaviour {
 		collectablesText = GameObject.Find("Collectables").GetComponent<Text>();
 		for (int i = 0; i < keyImages.Count(); i++)
 		{
-			keyImages[i] = GameObject.Find("Key"+i.ToString()).GetComponent<Image>();
+			Debug.Log(i);
+			keyImages[i] = GameObject.Find("key"+(i+1).ToString()).GetComponent<Image>();
+			Debug.Log(keyImages[i]);
 		}
 		collectablesMax = 7;
 		setCollectables();
@@ -44,7 +46,8 @@ public class Inventory : MonoBehaviour {
 
     private void enableKeyImage(string item)
     {
-        keyImages.Where(x => x.name.Contains(item)).First().enabled = true;
+		keyImages.First(x => x.name == item).enabled = true;
+        //keyImages.Where(x => x.name.Contains(item)).First().enabled = true;
     }
 
     private void disableKeyImages()
