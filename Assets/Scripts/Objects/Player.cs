@@ -125,6 +125,7 @@ public class Player : MonoBehaviour
         playUtils.HPRemove(amount);
         HPChange = 2;
         healthSlider.value = playUtils.getHealth();
+        rb.velocity *= -1;
         if (playUtils.getHealth() <= 0 && !isDead)
         {
             Death();
