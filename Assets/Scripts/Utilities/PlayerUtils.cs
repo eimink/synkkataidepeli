@@ -9,6 +9,7 @@ public class PlayerUtils
     {
         return health;
     }
+    public void returnHPToMax() { health = maxHP; }
     public void HPGrant(float amount)
     {
         if (health < maxHP)
