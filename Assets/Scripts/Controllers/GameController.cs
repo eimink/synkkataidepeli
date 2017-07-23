@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
         if(gameOver)
         {
             canvasController.SendMessage("ActivateStorypoint", "credits");
-            restart = true;
+            restart = false;
             gameOver = false;
         }
         if(backToMenu) {
