@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     private Color flashDMGColor = new Color(1f, 0f, 1f, 0.1f);
     private Color flashHPColor = new Color(0f, 1f, 0f, 0.1f);
     private float tickDMG = 5.0f;
-    private int HPChange;
+    private int HPChange =0;
     private bool isDead;
     private float nextActionTime = 0.0f;
     private Rigidbody2D rb;
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool lookRight = true;
 
-    private PlayerUtils playUtils = new PlayerUtils();
+    private PlayerUtils playUtils;
 
     void Start()
     {
@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
         gameController = GameObject.FindWithTag("GameController");
         damageImage = GameObject.Find("DamageImage").GetComponent<Image>();
         healthSlider = GameObject.Find("HealthSlider").GetComponent<Slider>();
+        playUtils = new PlayerUtils();
+        nextActionTime = 0.0f;
+        playUtils.returnHPToMax();
         gameStateText = GameObject.Find("GameStateText").GetComponent<Text>();
     }
 
@@ -80,7 +83,7 @@ public class Player : MonoBehaviour
 
     private void tickHandler()
     {
-        if (Time.time > nextActionTime)
+        if (Time.timeSinceLevelLoad > nextActionTime)
         {
             nextActionTime += period;
             loseHP(tickDMG);
