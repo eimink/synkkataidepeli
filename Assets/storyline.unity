@@ -432,7 +432,37 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: credits lol
+  m_Text: 'Heal Me
+
+    JamLight 21.-23.7.2017
+
+
+    Programming:
+
+
+    Teppo
+
+    Ville
+
+    Kalle
+
+
+    Design:
+
+
+    Veera
+
+    Esko
+
+
+    Graphics:
+
+    Ella
+
+
+    Music:
+
+    Teppo'
 --- !u!222 &218676272
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -581,7 +611,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Too early to go there
+  m_Text: 'It''s too early to go there.
+
+
+    Your story is not finished yet...'
 --- !u!222 &397500140
 CanvasRenderer:
   m_ObjectHideFlags: 0
