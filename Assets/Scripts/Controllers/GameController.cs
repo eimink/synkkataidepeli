@@ -71,6 +71,12 @@ public class GameController : MonoBehaviour
         storystate += 1;
     }
 
+    public void ShowGameNotFinished()
+    {
+        string id = "gamenotfinished";
+        canvasController.SendMessage("ActivateStorypoint", id);
+    }
+
     private string getStorypointID() {
         return "storypoint" + storystate;
     }
