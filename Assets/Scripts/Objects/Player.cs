@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
                 x += Mathf.Deg2Rad * f0Delta2.x * 10;
                 y += Mathf.Deg2Rad * f0Delta2.y * 10;
                 moveHorizontal = x;
-                moveVertical = y;
+                moveVertical = -y;
             }
 #endif
             Move(moveHorizontal, moveVertical);
