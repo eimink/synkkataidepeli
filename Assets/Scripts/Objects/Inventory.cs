@@ -27,7 +27,7 @@ public class Inventory : MonoBehaviour {
 			keyImages[i] = GameObject.Find("key"+(i+1).ToString()).GetComponent<Image>();
 			Debug.Log(keyImages[i]);
 		}
-		collectablesMax = 7;
+		collectablesMax = 6;
 		setCollectables();
 		disableKeyImages();
 	}
@@ -60,6 +60,7 @@ public class Inventory : MonoBehaviour {
 
     private void setCollectables()
     {
+        Debug.Log("setting collectables");
 		Debug.Log(collectablesText);
         collectablesText.text = "Heart Pieces: " + invUtils.collectedItems().ToString() + "/" + collectablesMax.ToString();
     }
@@ -71,8 +72,18 @@ public class Inventory : MonoBehaviour {
         GameObject player = this.gameObject;
 
         player.SendMessage("setPlayerMovement", false);
-        player.SendMessage("sendGameEvent", "ShowStorypoint");
-        
+        player.SendMessage("sendGameEvent", "ShowStorypoint");   
+    }
+
+    public void goalTouched(int collected) {
+        GameObject player = this.gameObject;
+        player.SendMessage("setPlayerMovement", false);
+        if (invUtils.collectedItems() != 6) {
+            player.SendMessage("sendGameEvent", "ShowGameNotFinished");
+        }
+        else {
+            player.SendMessage("sendGameEvent", "ShowStorypoint");
+        }
     }
 }
 
