@@ -55,12 +55,23 @@ public class GameController : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
+        if(gameOver)
+        {
+            canvasController.SendMessage("ActivateStorypoint", "credits");
+            restart = true;
+            gameOver = false;
+        }
 	}
 
     public void PlayerDied()
     {
         gameOver = true;
 		restart = true;
+    }
+
+    public void PlayerFinished()
+    {
+        gameOver = true;
     }
 
     public void ShowStorypoint()
