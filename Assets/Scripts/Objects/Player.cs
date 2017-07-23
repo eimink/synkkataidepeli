@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
         { 
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
-#if UNITY_ANDROID
+#if UNITY_ANDROID || UNITY_IOS
             if (Input.touchCount > 0)
             {
                 Touch f0 = Input.GetTouch(0);
