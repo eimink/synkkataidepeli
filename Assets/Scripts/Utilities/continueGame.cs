@@ -7,7 +7,7 @@ public class continueGame : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Mouse1"))
+		if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Mouse1") || Input.touchCount > 0)
 		{
 			SceneManager.LoadScene("test",LoadSceneMode.Single);
 		}

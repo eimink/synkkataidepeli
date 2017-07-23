@@ -27,7 +27,7 @@ public class CanvasController : MonoBehaviour
     void Update()
     {
         if(activeCanvasID != "") {
-            if(Input.GetKeyDown(KeyCode.Space)) {
+            if(Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0) {
                 player.SendMessage("setPlayerMovement", true);
                 DeactivateStorypoint();
             }
