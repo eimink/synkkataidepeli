@@ -28,8 +28,18 @@ public class CanvasController : MonoBehaviour
     {
         if(activeCanvasID != "") {
             if(Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0) {
-                player.SendMessage("setPlayerMovement", true);
-                DeactivateStorypoint();
+                if(activeCanvasID == "storypoint7") {
+                    DeactivateStorypoint();
+                    player.SendMessage("sendGameEvent", "PlayerFinished");
+                }
+                else if(activeCanvasID == "credits") {
+                    DeactivateStorypoint();
+                    player.SendMessage("sendGameEvent", "BackToMenu");
+                }
+                else {
+                    player.SendMessage("setPlayerMovement", true);
+                    DeactivateStorypoint();
+                }
             }
         }
 	}

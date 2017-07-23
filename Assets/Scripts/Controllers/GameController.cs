@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 
     private bool gameOver;
     private bool restart;
+    private bool backToMenu;
     private int storystate;
     private GameObject canvasController;
 	private LevelGenerator levelGen;
@@ -21,6 +22,7 @@ public class GameController : MonoBehaviour
 		levelGen = GameObject.Find("LevelGenerator").GetComponent<BitmapLevelGenerator>();
         gameOver = false;
         restart = false;
+        backToMenu = false;
         storystate = 0;
         
 		levelGen.onLevelGenerated += delegate(object sender, EventArgs e)
@@ -55,12 +57,31 @@ public class GameController : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
+        if(gameOver)
+        {
+            canvasController.SendMessage("ActivateStorypoint", "credits");
+            restart = true;
+            gameOver = false;
+        }
+        if(backToMenu) {
+            SceneManager.LoadScene("startscene");
+        }
 	}
 
     public void PlayerDied()
     {
         gameOver = true;
 		restart = true;
+    }
+
+    public void PlayerFinished()
+    {
+        gameOver = true;
+    }
+
+    public void BackToMenu()
+    {
+        backToMenu = true;
     }
 
     public void ShowStorypoint()
