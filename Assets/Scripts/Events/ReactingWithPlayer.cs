@@ -25,14 +25,16 @@ public class ReactingWithPlayer : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             if (checkItem.getInventory(keyName)) {
+				Debug.Log(keyName);
                 SetAllCollidersStatus(false);
             }
         }
     }
     private void SetAllCollidersStatus(bool active)
     {
-        foreach (Collider c in GetComponents<Collider>())
+		foreach (Collider2D c in GetComponents<Collider2D>())
         {
+			Debug.Log(c);
             c.enabled = active;
         }
     }
