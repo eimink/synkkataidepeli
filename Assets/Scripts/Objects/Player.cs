@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private Vector3 movement;
     private Color flashDMGColor = new Color(1f, 0f, 1f, 0.1f);
     private Color flashHPColor = new Color(0f, 1f, 0f, 0.1f);
-    private float tickDMG = 0.1f;
+    private float tickDMG = 5.0f;
     private int HPChange;
     private bool isDead;
     private float nextActionTime = 0.0f;
@@ -125,6 +125,7 @@ public class Player : MonoBehaviour
         playUtils.HPRemove(amount);
         HPChange = 2;
         healthSlider.value = playUtils.getHealth();
+        rb.velocity *= -1;
         if (playUtils.getHealth() <= 0 && !isDead)
         {
             Death();
