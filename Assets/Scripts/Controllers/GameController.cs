@@ -52,10 +52,7 @@ public class GameController : MonoBehaviour
     {
         if(restart)
         {
-            if(Input.GetKeyDown(KeyCode.R))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         if(gameOver)
         {
@@ -70,8 +67,8 @@ public class GameController : MonoBehaviour
 
     public void PlayerDied()
     {
-        gameOver = true;
-		restart = true;
+        string id = "restart";
+        canvasController.SendMessage("ActivateStorypoint", "restart");
     }
 
     public void PlayerFinished()
@@ -82,6 +79,11 @@ public class GameController : MonoBehaviour
     public void BackToMenu()
     {
         backToMenu = true;
+    }
+
+    public void RestartGame()
+    {
+        restart = true;
     }
 
     public void ShowStorypoint()

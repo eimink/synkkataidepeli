@@ -89,6 +89,7 @@ public class LevelGenerator : MonoBehaviour {
 					else if (tileColor == healthPackColor)
 					{
 						o.tag = "HealthPack";
+						o.GetComponent<HealthPack>().set(UnityEngine.Random.value > .5f);
 					}
 					else if (tileColor == enemyColor)
 					{
