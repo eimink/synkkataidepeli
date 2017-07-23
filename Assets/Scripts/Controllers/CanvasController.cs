@@ -32,6 +32,10 @@ public class CanvasController : MonoBehaviour
                     DeactivateStorypoint();
                     player.SendMessage("sendGameEvent", "PlayerFinished");
                 }
+                else if(activeCanvasID == "credits") {
+                    DeactivateStorypoint();
+                    player.SendMessage("sendGameEvent", "BackToMenu");
+                }
                 else {
                     player.SendMessage("setPlayerMovement", true);
                     DeactivateStorypoint();
