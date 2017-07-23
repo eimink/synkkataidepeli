@@ -113,7 +113,6 @@ public class Player : MonoBehaviour
     private void Death()
     {
         isDead = true;
-        gameStateText.text = "IT'S GAME OVER MAN, GAME OVER! PRESS R TO TRY AGAIN";
         playerMovement = false;
         animateDeath();
         sendGameEvent("PlayerDied");
