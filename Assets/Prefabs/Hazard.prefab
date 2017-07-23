@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d2ef26632e797409c81ea67603c8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatChange: 10
+  floatChange: 50
   staysActive: 1
   methodToCall: loseHP
 --- !u!114 &114623367622280286
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d2ef26632e797409c81ea67603c8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatChange: 10
+  floatChange: 100
   staysActive: 1
   methodToCall: loseHP
 --- !u!212 &212020317711749522
