@@ -9,13 +9,10 @@ Developed at JamLight
 Playable version: https://spurdo.us/healme/
 
 Programming:
-Teppo
-Ville
-Kalle
+Teppo, Ville, Kalle
 
 Design:
-Veera
-Esko
+Veera, Esko
 
 Graphics:
 Ella
